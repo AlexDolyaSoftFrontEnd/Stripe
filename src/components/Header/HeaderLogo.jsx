@@ -6,8 +6,8 @@ export default function HeaderLogo() {
     <div className={styles.logo}>
       <img src={logo} alt="Sprinters logo" className={styles.logo__img} />
       <div className={styles.logo__text}>
-        <span className={styles.logo__title}>sprinters</span>
-        <span className={styles.logo__subtitle}>перевізники Європи</span>
+        <span className={styles.logo__title}>Sprinters</span>
+        <span className={styles.logo__subtitle}>Перевізники Європи</span>
       </div>
     </div>
   );

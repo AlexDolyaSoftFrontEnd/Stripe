@@ -22,7 +22,13 @@ const carrierData = {
   passengers: "4000+",
   buses: "8 бусів",
   countries: "8 країн",
-  city: "Львів"
+  city: "Львів",
+};
+
+const titleStyle = {
+  marginLeft: "24px",
+  marginTop: "20px",
+  fontWeight: "600",
 };
 
 function App() {
@@ -30,10 +36,22 @@ function App() {
     <>
       <Header />
       <Scroll />
+
       <Routes>
-        <Route path="/" element={<h1>Главная</h1>} />
-        <Route path="/carriers" element={<h1>Перевізникам</h1>} />
-        <Route path="/about" element={<h1>Про нас</h1>} />
+        <Route
+          path="/"
+          element={<h1 style={titleStyle}>Главная</h1>}
+        />
+
+        <Route
+          path="/carriers"
+          element={<h1 style={titleStyle}>Перевізникам</h1>}
+        />
+
+        <Route
+          path="/about"
+          element={<h1 style={titleStyle}>Про нас</h1>}
+        />
 
         <Route
           path="/profile"
@@ -48,15 +66,16 @@ function App() {
           }
         />
 
-        <Route path="/create" element={<h1>Створити профіль</h1>} />
+        <Route
+          path="/create"
+          element={<h1 style={titleStyle}>Створити профіль</h1>}
+        />
       </Routes>
 
-      <Footer />   
+      <Footer />
     </>
   );
 }
 
 export default App;
-
-
 
