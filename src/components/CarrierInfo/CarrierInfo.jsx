@@ -24,12 +24,11 @@ export default function CarrierInfo() {
           powering new business models.
         </p>
 
-        {/* SOCIAL */}
         <h3 className={styles["carrier-info__subtitle"]}>Ми у соц. мережах</h3>
 
         <div className={styles["carrier-info__social"]}>
           
-          {/* TWITTER */}
+  
           <a href="#" className={styles["carrier-info__social-link"]}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="#635bff">
               <path d="M22.46 6c-.77.35-1.6.59-2.46.69a4.3 4.3 0 0 0 1.9-2.38c-.83.49-1.75.84-2.72 1.03A4.28 4.28 0 0 0 16.1 4c-2.37 0-4.28 1.92-4.28 4.29 0 .34.04.67.1.98-3.55-.18-6.7-1.88-8.81-4.48a4.31 4.31 0 0 0-.58 2.16c0 1.5.76 2.82 1.91 3.59a4.23 4.23 0 0 1-1.94-.54v.05c0 2.1 1.49 3.85 3.46 4.25-.36.1-.75.15-1.15.15-.28 0-.55-.03-.81-.08.55 1.73 2.15 2.99 4.05 3.02A8.59 8.59 0 0 1 2 19.54a12.1 12.1 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.63 8.63 0 0 0 22.46 6z"/>
@@ -37,7 +36,6 @@ export default function CarrierInfo() {
             twitter.com/stripe
           </a>
 
-          {/* FACEBOOK */}
           <a href="#" className={styles["carrier-info__social-link"]}>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="#635bff">
               <path d="M13.5 21v-7h2.3l.3-2.7h-2.6v-1.6c0-.7.2-1.2 1.3-1.2h1.2V6.1c-.2 0-.9-.1-1.7-.1-1.7 0-3 1-3 3v1.7H9v2.7h2.3v7h2.2z"/>
@@ -47,7 +45,6 @@ export default function CarrierInfo() {
 
         </div>
 
-        {/* GALLERY */}
         <div className={styles["carrier-info__gallery"]}>
           <img src={bus1} alt="Bus 1" />
           <img src={bus2} alt="Bus 2" />
@@ -55,7 +52,6 @@ export default function CarrierInfo() {
         </div>
       </div>
 
-      {/* RIGHT */}
       <div className={styles["carrier-info__right"]}>
         <h2 className={styles["carrier-info__title"]}>Обслуговуємо країни</h2>
 
@@ -71,7 +67,7 @@ export default function CarrierInfo() {
           </li>
 
           <li className={styles["carrier-info__country"]}>
-            {/* ITALY */}
+  
             <svg width="26" height="18" viewBox="0 0 48 32">
               <rect width="16" height="32" fill="#009246" />
               <rect width="16" height="32" x="16" fill="#fff" />
@@ -91,7 +87,6 @@ export default function CarrierInfo() {
           </li>
 
           <li className={styles["carrier-info__country"]}>
-            {/* NETHERLANDS */}
             <svg width="26" height="18" viewBox="0 0 48 32">
               <rect width="48" height="10.7" fill="#AE1C28" />
               <rect width="48" height="10.7" y="10.7" fill="#fff" />
@@ -110,7 +105,6 @@ export default function CarrierInfo() {
           </li>
         </ul>
 
-        {/* BUTTON DROPDOWN */}
         <button
           onClick={() => setOpen(!open)}
           className={`${styles["carrier-info__button"]} ${
@@ -129,7 +123,6 @@ export default function CarrierInfo() {
           }`}
         ></ul>
 
-        {/* CALENDAR */}
         <Calendar />
       </div>
     </section>

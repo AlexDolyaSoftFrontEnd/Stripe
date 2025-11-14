@@ -7,7 +7,6 @@ export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(today.getMonth());
   const [currentYear, setCurrentYear] = useState(today.getFullYear());
 
-  // Выбранная дата
   const [selectedDate, setSelectedDate] = useState(null);
 
   const monthNames = [
@@ -38,7 +37,6 @@ export default function Calendar() {
     }
   };
 
-  // Обработчик выбора даты
   const handleSelectDay = (day) => {
     const dateObj = new Date(currentYear, currentMonth, day);
     setSelectedDate(dateObj);
@@ -62,12 +60,11 @@ export default function Calendar() {
 
   return (
     <div className={styles.calendar}>
-      {/* BUY BUTTON */}
+
       <button className={styles.buyButton}>
         <span className={styles.plus}>＋</span> Купити квиток
       </button>
 
-      {/* HEADER */}
       <div className={styles.header}>
         <span className={styles.month}>
           {monthNames[currentMonth].toUpperCase()} {currentYear}
@@ -78,21 +75,17 @@ export default function Calendar() {
         </div>
       </div>
 
-      {/* DAYS OF WEEK */}
       <div className={styles.week}>
         {daysOfWeek.map((d) => (
           <span key={d}>{d}</span>
         ))}
       </div>
 
-      {/* GRID */}
       <div className={styles.grid}>
-        {/* Пустые ячейки перед началом месяца */}
         {Array.from({ length: firstDay }).map((_, i) => (
           <span key={"e" + i} className={styles.empty}></span>
         ))}
 
-        {/* Дни месяца */}
         {Array.from({ length: totalDays }).map((_, i) => {
           const day = i + 1;
 

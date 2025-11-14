@@ -1,6 +1,6 @@
 import globe from "../../assets/icons/globe.svg";
 import phone from "../../assets/icons/phone.svg";
-import CarrierTrips from "./CarrierTrips";  // ⬅️ ДОБАВИЛИ
+import CarrierTrips from "./CarrierTrips";  
 
 import styles from "./CarrierTitle.module.css";
 
