@@ -1,0 +1,28 @@
+.trips {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.4rem 1rem;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary);
+
+  border: 1.8px solid var(--color-primary);
+  border-radius: 8px;
+
+  background: linear-gradient(90deg, #ffffff 85%, #f4f2ff 100%);
+  box-shadow: 0 2px 5px rgba(99, 91, 255, 0.08);
+
+  transition: 0.25s ease;
+}
+
+.trips:hover {
+  background: linear-gradient(90deg, #ffffff 75%, #ebe8ff 100%);
+  box-shadow: 0 3px 8px rgba(99, 91, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+
+  

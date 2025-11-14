@@ -1,0 +1,274 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.carrier-info > * {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.carrier-info__left {
+  animation-delay: 0.05s;
+}
+
+.carrier-info__right {
+  animation-delay: 0.12s;
+}
+
+.carrier-info {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: 60px;
+  padding: 48px 0 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+}
+
+.carrier-info__title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 20px;
+  line-height: 1.25;
+}
+
+.carrier-info__text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #425466;
+  max-width: 640px;
+  margin-bottom: 38px;
+}
+
+.carrier-info__subtitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0a2540;
+  margin: 12px 0 20px;
+}
+
+.carrier-info__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.carrier-info__social-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  height: 46px;
+  border: 1.5px solid #635bff;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  color: #635bff;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.carrier-info__social-link:hover {
+  transform: translateY(-2px);
+  background: #f6f4ff;
+  box-shadow: 0 4px 14px rgba(99, 91, 255, 0.18);
+}
+
+/* Галерея */
+.carrier-info__gallery-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #0a2540;
+  margin: 28px 0 16px;
+}
+
+.carrier-info__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.carrier-info__gallery img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carrier-info__gallery img:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.carrier-info__gallery img:nth-child(3) {
+  animation-delay: 0.22s;
+}
+
+.carrier-info__gallery img:hover {
+  transform: scale(1.045);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+}
+
+.carrier-info__right {
+  border-bottom: 1px solid #eef1f6;
+  padding-bottom: 40px;
+}
+
+.carrier-info__countries {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.carrier-info__country {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 16px;
+  color: #0a2540;
+}
+
+.carrier-info__country svg {
+  width: 28px;
+  height: 20px;
+  border-radius: 2px;
+}
+
+.carrier-info__button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #0a2540;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.carrier-info__button:hover {
+  opacity: 0.8;
+}
+
+.carrier-info__button--open span {
+  transform: rotate(180deg);
+}
+
+.carrier-info__dropdown {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-6px);
+  transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.carrier-info__dropdown--open {
+  margin-top: 10px;
+  opacity: 1;
+  max-height: 220px;
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .carrier-info {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+
+  .carrier-info__title {
+    font-size: 26px;
+  }
+
+  .carrier-info__gallery img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carrier-info {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 40px 20px;
+  }
+
+  .carrier-info__right {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .carrier-info__gallery img {
+    height: 170px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carrier-info__title {
+    font-size: 24px;
+  }
+
+  .carrier-info__subtitle {
+    font-size: 18px;
+  }
+
+  .carrier-info__text {
+    font-size: 15px;
+  }
+
+  .carrier-info__social-link {
+    width: 100%;
+    justify-content: center;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  .carrier-info__gallery img {
+    height: 160px;
+  }
+}
+
+@media (max-width: 375px) {
+  .carrier-info__title {
+    font-size: 22px;
+  }
+
+  .carrier-info__social {
+    gap: 12px;
+  }
+
+  .carrier-info__country {
+    font-size: 14px;
+  }
+
+  .carrier-info__gallery img {
+    height: 150px;
+  }
+}
+
+  

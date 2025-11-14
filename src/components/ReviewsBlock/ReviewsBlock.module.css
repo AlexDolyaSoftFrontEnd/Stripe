@@ -1,0 +1,234 @@
+.reviews {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 60px;
+    max-width: 1200px;
+    padding: 70px 0 100px;
+    margin: 0 auto;
+    background-image: url("./images/reviews-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .left {
+    padding-top: 20px;
+  }
+  
+  .title {
+    font-size: 40px;
+    font-weight: 800;
+    color: #0a2540;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .title span {
+    color: #3b45f8;
+  }
+  
+  .textLeft {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #425466;
+    margin-bottom: 32px;
+    max-width: 440px;
+  }
+  
+  .btn {
+    background: #3b45f8;
+    color: #fff;
+    padding: 15px 32px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s ease;
+  }
+  
+  .btn:hover {
+    background: #313bf1;
+  }
+  
+  .right {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .track {
+    display: flex;
+    width: 200%;
+    transition: transform 0.45s ease;
+  }
+  
+  .slide {
+    width: 100%;
+    flex-shrink: 0;
+    padding-right: 28px;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 26px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f2f5;
+    overflow: hidden;
+    width: fit-content;   
+    max-width: 520px;     
+  }
+  
+  
+  .userRow {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0a2540;
+  }
+  
+  .route {
+    font-size: 14px;
+    color: #3b45f8;
+    font-weight: 600;
+  }
+  
+  .date {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 3px;
+  }
+  
+  .text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #425466;
+    margin-bottom: 22px;
+  
+    width: auto;
+    max-width: 100%;
+    display: block;
+  
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }  
+  
+  .stars {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 26px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: #cdd4e4;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+  
+  .activeDot {
+    background: #3b45f8;
+    width: 12px;
+    height: 12px;
+  }
+  
+  @media (max-width: 1024px) {
+    .reviews {
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      padding: 60px 0 80px;
+      background-size: 120%;
+    }
+  
+    .title {
+      font-size: 34px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .reviews {
+      grid-template-columns: 1fr;
+      padding: 50px 20px 70px;
+      background-size: 160%;
+      text-align: center;
+    }
+  
+    .title {
+      font-size: 30px;
+    }
+  
+    .textLeft {
+      margin: 0 auto 24px;
+    }
+  
+    .btn {
+      margin: 0 auto 32px;
+    }
+  
+    .slide {
+      padding-right: 0;
+    }
+  
+    .track {
+      width: 200%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .reviews {
+      padding: 40px 12px 60px;
+      background-size: 200%;
+    }
+  
+    .title {
+      font-size: 26px;
+    }
+  
+    .card {
+      padding: 22px 18px;
+    }
+  
+    .avatar {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .reviews {
+      background-size: 240%;
+    }
+  
+    .title {
+      font-size: 22px;
+    }
+  }  
+  
+  

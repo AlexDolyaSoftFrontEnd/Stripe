@@ -1,0 +1,209 @@
+/* Контейнер */
+.drivers {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 70px;
+  font-family: "Inter", sans-serif;
+}
+
+/* Верхняя панель */
+.drivers__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.drivers__title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0a2540;
+}
+
+.drivers__all {
+  font-size: 14px;
+  font-weight: 600;
+  color: #635bff;
+  text-decoration: none;
+}
+
+.drivers__all:hover {
+  opacity: 0.8;
+}
+
+/* Карточка */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 24px 18px;
+  text-align: center;
+  transition: 0.25s ease;
+  position: relative;
+}
+
+.card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+/* Аватар */
+.avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+
+/* Имя + опыт */
+.name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 6px;
+}
+
+.exp {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 18px;
+}
+
+/* Соцсети */
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  filter: grayscale(1);
+  opacity: 0.8;
+  transition: 0.25s ease;
+}
+
+.icon:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.08);
+}
+
+/* Исправление высоты свайпера */
+.swiper-slide {
+  height: auto !important;
+}
+
+/* ----------------------------------------
+   АДАПТИВНОСТЬ КАРТОЧЕК
+----------------------------------------- */
+
+/* Планшеты ≤ 1024px */
+@media (max-width: 1024px) {
+  .card {
+    padding: 22px 16px;
+  }
+  .drivers__title {
+    font-size: 24px;
+  }
+}
+
+/* Планшеты ≤ 768px */
+@media (max-width: 768px) {
+  .drivers {
+    padding: 30px 16px 60px;
+  }
+
+  .card {
+    padding: 20px 14px;
+  }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .exp {
+    font-size: 13px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Телефоны ≤ 576px */
+@media (max-width: 576px) {
+  .drivers {
+    padding: 24px 14px 50px;
+  }
+
+  .card {
+    padding: 18px 14px;
+    border-radius: 12px;
+  }
+
+  .avatar {
+    width: 58px;
+    height: 58px;
+    margin-bottom: 10px;
+  }
+
+  .name {
+    font-size: 15px;
+  }
+
+  .exp {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Маленькие телефоны ≤ 380px */
+@media (max-width: 380px) {
+  .drivers {
+    padding: 22px 10px 45px;
+  }
+
+  .card {
+    padding: 16px 12px;
+  }
+
+  .avatar {
+    width: 54px;
+    height: 54px;
+  }
+
+  .name {
+    font-size: 14px;
+  }
+
+  .exp {
+    font-size: 12px;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .social {
+    gap: 12px;
+  }
+}
+
+  

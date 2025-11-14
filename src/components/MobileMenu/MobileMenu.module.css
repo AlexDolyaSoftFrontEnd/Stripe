@@ -1,0 +1,19 @@
+.mobile {
+    display: none;
+  }
+  
+  @media (max-width: 900px) {
+    .mobile {
+      display: flex;
+      margin-left: auto;
+    }
+  }
+  
+  .mobile__backdrop {
+    position: fixed;
+    inset: 0;
+    background: var(--color-backdrop);
+    z-index: 1400;
+  }  
+
+  

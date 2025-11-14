@@ -1,0 +1,28 @@
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+}
+
+@media (max-width: 1024px) {
+  .stats {
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    justify-content: center;
+    gap: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    gap: 1rem;
+  }
+}
+
+  
