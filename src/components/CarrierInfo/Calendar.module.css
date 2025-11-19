@@ -1,186 +1,271 @@
-.calendar {
-  width: 100%;
-  max-width: 310px;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 18px;
-  margin-top: 25px;
-  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.10);
-  font-family: Inter, sans-serif;
-  transition: 0.25s ease;
+/* ================================
+   GLOBAL (apple-like smoothness)
+================================ */
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --accent: #007aff;        /* Apple blue */
+  --accent-hover: #0a84ff;
+  --disabled: #d0d0d0;
+  --border: rgba(0,0,0,0.05);
+  --shadow: 0 8px 28px rgba(0,0,0,0.12);
+  --radius: 14px;
+  --blur: blur(20px);
+  --modal-bg: rgba(255, 255, 255, 0.75);
 }
 
+/* ================================
+   CONTAINER
+================================ */
+.calendar {
+  width: 320px;
+  padding: 20px;
+  margin: auto;
+
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+/* ================================
+   BUY BUTTON (Apple CTA)
+================================ */
 .buyButton {
   width: 100%;
-  height: 48px;
-  border-radius: 6px;
-  border: 1.5px solid #635bff;
-  background: #fff;
-  color: #635bff;
-  font-size: 15px;
+  background: var(--accent);
+  color: white;
+  padding: 12px 0;
+
+  border-radius: 12px;
+  border: none;
+  font-size: 17px;
   font-weight: 600;
-  cursor: pointer;
-  margin-bottom: 20px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 6px;
+
+  cursor: pointer;
   transition: 0.2s ease;
 }
 
 .buyButton:hover {
-  background: #f3f1ff;
+  background: var(--accent-hover);
 }
 
 .plus {
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 0;
 }
 
+/* ================================
+   HEADER (Month + arrows)
+================================ */
 .header {
+  margin-top: 16px;
+  margin-bottom: 6px;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  justify-content: space-between;
 }
 
 .month {
-  font-size: 14px;
-  font-weight: 700;
-  color: #0d1b39;
-  letter-spacing: 0.5px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
 }
 
 .navBtn {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
   border: none;
-  background: none;
-  color: #635bff;
-  font-size: 18px;
+  background: rgba(0,0,0,0.05);
   cursor: pointer;
-  padding: 4px 6px;
-  border-radius: 6px;
-  transition: 0.2s ease;
+
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
 .navBtn:hover {
-  background: #eceaff;
+  background: rgba(0,0,0,0.12);
 }
 
+/* ================================
+   DAYS OF WEEK
+================================ */
 .week {
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  font-size: 12px;
-  color: #94a3b8;
-  margin-bottom: 10px;
+  color: #8e8e93;
+  font-size: 13px;
   text-align: center;
 }
 
+/* ================================
+   CALENDAR GRID
+================================ */
 .grid {
+  margin-top: 6px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 6px;
-  text-align: center;
 }
 
+.empty {
+  height: 38px;
+}
+
+/* ================================
+   DAY BUTTON
+================================ */
 .day {
-  background: none;
+  height: 38px;
+  border-radius: 8px;
   border: none;
-  font-size: 14px;
-  color: #0a2540;
-  width: 32px;
-  height: 32px;
-  margin: 0 auto;
-  border-radius: 50%;
+
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: var(--blur);
+
+  font-size: 15px;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .day:hover {
-  background: #eceaff;
-}
-
-.active {
-  background: #635bff !important;
-  color: #fff !important;
-  border-radius: 8px;
-  font-weight: 700;
-  box-shadow: 0px 3px 8px rgba(99, 91, 255, 0.32);
+  background: rgba(0,0,0,0.08);
 }
 
 .selected {
-  background: #635bff !important;
-  color: #fff !important;
-  border-radius: 8px;
-  font-weight: 700;
-  box-shadow: 0px 3px 8px rgba(99, 91, 255, 0.42);
+  background: var(--accent) !important;
+  color: white;
+  font-weight: 600;
+  transform: scale(1.05);
 }
 
-.empty {
-  height: 32px;
+/* Disabled past dates */
+.day:disabled {
+  background: rgba(0,0,0,0.05);
+  color: #b3b3b3;
+  cursor: not-allowed;
 }
 
-@media (max-width: 768px) {
-  .calendar {
-    max-width: 280px;
-    padding: 16px;
-  }
+/* ================================
+   MODAL OVERLAY (Apple blur)
+================================ */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
 
-  .buyButton {
-    height: 44px;
-    font-size: 14px;
-  }
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
 
-  .month {
-    font-size: 13px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  .navBtn {
-    font-size: 16px;
-  }
-
-  .week {
-    font-size: 11px;
-  }
-
-  .day {
-    width: 30px;
-    height: 30px;
-    font-size: 13px;
-  }
+  animation: fadeIn 0.2s ease;
 }
 
-@media (max-width: 480px) {
-  .calendar {
-    max-width: 100%;
-    padding: 14px;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; }
+}
 
-  .buyButton {
-    height: 42px;
-    font-size: 13px;
-  }
+/* ================================
+   MODAL WINDOW (Glass)
+================================ */
+.modal {
+  width: 280px;
 
-  .day {
-    width: 28px;
-    height: 28px;
-    font-size: 12px;
-  }
+  background: var(--modal-bg);
+  backdrop-filter: blur(25px);
 
-  .week {
-    font-size: 10px;
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  text-align: center;
+
+  animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
   }
 }
 
-@media (max-width: 360px) {
-  .buyButton {
-    height: 38px;
-    font-size: 12px;
-  }
+/* ================================
+   MODAL TEXT
+================================ */
+.modal h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
 
-  .day {
-    width: 26px;
-    height: 26px;
-    font-size: 11px;
-  }
+.modal p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: #333;
+}
+
+/* ================================
+   MODAL BUTTONS (iOS style)
+================================ */
+.modalActions {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.confirmBtn,
+.cancelBtn {
+  flex: 1;
+  padding: 10px 0;
+
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* Confirm */
+.confirmBtn {
+  background: var(--accent);
+  color: white;
+}
+
+.confirmBtn:hover {
+  background: var(--accent-hover);
+}
+
+/* Cancel */
+.cancelBtn {
+  background: rgba(0,0,0,0.09);
+}
+
+.cancelBtn:hover {
+  background: rgba(0,0,0,0.15);
 }
 
   
