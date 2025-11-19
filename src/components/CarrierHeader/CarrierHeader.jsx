@@ -12,7 +12,7 @@ export default function CarrierHeader({ carrier }) {
       <CarrierBreadcrumbs
         items={[
           { label: "Головна", to: "/" },
-          { label: "Профіль перевізника", to: "/profile" }
+          { label: "Профіль перевізника", to: "/carriers" }
         ]}
         current={carrier.name}
       />
