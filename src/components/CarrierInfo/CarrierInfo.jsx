@@ -77,13 +77,12 @@ export default function CarrierInfo() {
           </li>
 
           <li className={styles["carrier-info__country"]}>
-            {/* GERMANY */}
+            {/* SPAIN */}
             <svg width="26" height="18" viewBox="0 0 48 32">
-              <rect width="48" height="10.7" fill="#000" />
-              <rect width="48" height="10.7" y="10.7" fill="#DD0000" />
-              <rect width="48" height="10.7" y="21.3" fill="#FFCE00" />
+              <rect width="48" height="32" fill="#AA151B" />
+              <rect width="48" height="16" y="8" fill="#F1BF00" />
             </svg>
-            Німеччина
+            Іспанія
           </li>
 
           <li className={styles["carrier-info__country"]}>
@@ -95,34 +94,7 @@ export default function CarrierInfo() {
             Нідерланди
           </li>
 
-          <li className={styles["carrier-info__country"]}>
-            {/* SPAIN */}
-            <svg width="26" height="18" viewBox="0 0 48 32">
-              <rect width="48" height="32" fill="#AA151B" />
-              <rect width="48" height="16" y="8" fill="#F1BF00" />
-            </svg>
-            Іспанія
-          </li>
         </ul>
-
-        <button
-          onClick={() => setOpen(!open)}
-          className={`${styles["carrier-info__button"]} ${
-            open ? styles["carrier-info__button--open"] : ""
-          }`}
-        >
-          Усі країни 
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0a2540">
-            <path d="M7 10l5 5 5-5H7z" />
-          </svg>
-        </button>
-
-        <ul
-          className={`${styles["carrier-info__dropdown"]} ${
-            open ? styles["carrier-info__dropdown--open"] : ""
-          }`}
-        ></ul>
-
         <Calendar />
       </div>
     </section>
