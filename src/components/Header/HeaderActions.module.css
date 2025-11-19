@@ -1,36 +1,58 @@
 .actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+/* Линк Create */
+.actions__create {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: #3b45f8;
+  text-decoration: none;
+  padding: 0.25rem 0; /* увеличивает кликабельность */
+
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.actions__create:hover {
+  color: #2e36d7;
+  opacity: 0.9;
+}
+
+/* Кнопка Login */
+.actions__login {
+  background: #3b45f8;
+  color: #ffffff;
+
+  font-size: 0.96rem;
+  font-weight: 600;
+
+  padding: 0.58rem 1.25rem;
+  border-radius: 8px;
+
+  border: none;
+  cursor: pointer;
+
+  transition: background-color 0.25s ease, transform 0.18s ease, opacity 0.25s ease;
+}
+
+/* Hover + micro-interaction */
+.actions__login:hover {
+  background: #333dec;
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.actions__login:active {
+  transform: translateY(0);
+  opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+  .actions {
+    display: none;
   }
-  
-  .actions__create {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #3b45f8;
-    text-decoration: none;
-  }
-  
-  .actions__login {
-    background: #3b45f8;
-    color: white;
-    font-size: 0.95rem;
-    font-weight: 600;
-    padding: 0.55rem 1.25rem;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-  }
-  
-  .actions__login:hover {
-    opacity: 0.85;
-  }
-  
-  @media (max-width: 900px) {
-    .actions {
-      display: none;
-    }
-  }
+}
 
   
