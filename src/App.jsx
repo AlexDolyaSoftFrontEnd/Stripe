@@ -1,16 +1,16 @@
 import { Routes, Route } from "react-router-dom";
-import Scroll from "./components/Scroll/Scroll";
 
+import Scroll from "./components/Scroll/Scroll";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+
 
 import CarrierHeader from "./components/CarrierHeader/CarrierHeader";
 import CarrierInfo from "./components/CarrierInfo/CarrierInfo";
-
 import ServiceBlock from "./components/ServiceBlock/ServiceBlock";
 import DriversSwiper from "./components/DriversSwiper/DriversSwiper";
 import ReviewsBlock from "./components/ReviewsBlock/ReviewsBlock";
 
-import Footer from "./components/Footer/Footer";  
 
 const carrierData = {
   name: "Stripe",
@@ -25,52 +25,47 @@ const carrierData = {
   city: "Львів",
 };
 
-const titleStyle = {
-  marginLeft: "24px",
-  marginTop: "20px",
-  fontWeight: "600",
-};
-
+const PageTitle = ({ children }) => (
+  <h1
+    style={{
+      marginLeft: 24,
+      marginTop: 20,
+      fontWeight: 600,
+    }}
+  >
+    {children}
+  </h1>
+);
 function App() {
   return (
     <>
       <Header />
       <Scroll />
 
-      <Routes>
-        <Route
-          path="/"
-          element={<h1 style={titleStyle}>Главная</h1>}
-        />
+      <main style={{ minHeight: "60vh" }}>
+        <Routes>
+          <Route path="/" element={<PageTitle>Главная</PageTitle>} />
 
-        <Route
-          path="/carriers"
-          element={<h1 style={titleStyle}>Перевізникам</h1>}
-        />
+          <Route path="/carriers" element={<PageTitle>Перевізникам</PageTitle>} />
 
-        <Route
-          path="/about"
-          element={<h1 style={titleStyle}>Про нас</h1>}
-        />
+          <Route path="/about" element={<PageTitle>Про нас</PageTitle>} />
 
-        <Route
-          path="/profile"
-          element={
-            <>
-              <CarrierHeader carrier={carrierData} />
-              <CarrierInfo />
-              <DriversSwiper />
-              <ServiceBlock />
-              <ReviewsBlock />
-            </>
-          }
-        />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <CarrierHeader carrier={carrierData} />
+                <CarrierInfo />
+                <DriversSwiper />
+                <ServiceBlock />
+                <ReviewsBlock />
+              </>
+            }
+          />
 
-        <Route
-          path="/create"
-          element={<h1 style={titleStyle}>Створити профіль</h1>}
-        />
-      </Routes>
+          <Route path="/create" element={<PageTitle>Створити профіль</PageTitle>} />
+        </Routes>
+      </main>
 
       <Footer />
     </>
