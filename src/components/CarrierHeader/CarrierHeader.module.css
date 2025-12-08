@@ -30,10 +30,8 @@
 
 .breadcrumbs {
   width: 100%;
-  max-width: 1200px;
+  padding: 0 var(--site-side-padding);
   margin: 0 auto;
-
-  padding-left: 0.5rem;
   padding-bottom: 1.4rem;
 
   display: flex;
@@ -45,12 +43,51 @@
 
   position: relative;
   z-index: 3;
+  box-sizing: border-box;
+}
+/* removed stray padding lines above; unified side padding via --site-side-padding */
+
+@media (max-width: 1024px) {
+  .breadcrumbs {
+    padding: 0 var(--site-side-padding) 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs {
+    padding: 0 var(--site-side-padding) 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumbs {
+    padding: 0 var(--site-side-padding) 1.4rem;
+  }
 }
 
 .breadcrumbs a {
   color: #3b45f8;
   text-decoration: none;
   font-weight: 500;
+}
+/* removed stray padding lines here too */
+
+@media (max-width: 1024px) {
+  .header__content {
+    padding: 0 var(--site-side-padding);
+  }
+}
+
+@media (max-width: 768px) {
+  .header__content {
+    padding: 0 var(--site-side-padding);
+  }
+}
+
+@media (max-width: 480px) {
+  .header__content {
+    padding: 0 var(--site-side-padding);
+  }
 }
 
 .breadcrumbs span:last-child {
@@ -60,17 +97,15 @@
 
 .header__content {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-
+  padding: 0 var(--site-side-padding);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2.6rem;
-
   text-align: center;
   position: relative;
   z-index: 3;
+  box-sizing: border-box;
 }
 
 

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./CarrierInfo.module.css";
 
 import bus1 from "./images/bus1.png";
@@ -8,8 +7,6 @@ import bus3 from "./images/bus3.png";
 import Calendar from "./Calendar";
 
 export default function CarrierInfo() {
-  const [open, setOpen] = useState(false);
-
   return (
     <section className={styles["carrier-info"]}>
       {/* LEFT */}

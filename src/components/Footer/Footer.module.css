@@ -11,8 +11,6 @@
 .footer__container,
 .footer__bottom {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
   padding-left: max(20px, 4vw);
   padding-right: max(20px, 4vw);
 }
@@ -21,6 +19,20 @@
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
   gap: 64px;
+}
+
+@media (max-width: 1024px) {
+  .footer__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
 }
 
 .footer__col {
@@ -84,10 +96,12 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .footer__form input {
-  flex: 1;
+  flex: 1 1 200px;
+  min-width: 120px;
   padding: 12px 16px;
   border-radius: 8px;
   background: #ffffff;
@@ -98,11 +112,8 @@
   transition: 0.25s ease;
 }
 
-.footer__form input:focus {
-  box-shadow: 0 0 0 3px rgba(108, 116, 255, 0.25);
-}
-
 .footer__form button {
+  flex: 0 0 auto;
   background: #6c74ff;
   border: none;
   padding: 12px 20px;
@@ -111,6 +122,20 @@
   font-weight: 500;
   cursor: pointer;
   transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .footer__form {
+    flex-direction: column;
+  }
+
+  .footer__form input,
+  .footer__form button {
+    flex: 1;
+    min-width: auto;
+    width: 100%;
+  }
 }
 
 .footer__form button:hover {

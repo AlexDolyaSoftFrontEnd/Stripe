@@ -1,0 +1,177 @@
+/* Коммит: Применение переменной --site-side-padding для боковых отступов
+   Описание: Сохранён фон на всю ширину, контент теперь получает боковые
+   отступы через CSS-переменную --site-side-padding, согласованные с меню.
+   Детали: padding-block сохранён (24px), padding-inline использует переменную.
+   Дата: 2025-12-08
+   Автор: AI-ассистент
+*/
+.container {
+  width: 100%;
+  background: linear-gradient(135deg, #f7fbff 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 24px var(--site-side-padding);
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .container { padding: 24px calc(var(--site-side-padding) * 0.6); }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 16px calc(var(--site-side-padding) * 0.3); }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 12px var(--site-side-padding); }
+}
+
+.title {
+  margin: 20px 0 8px 0;
+  font-weight: 700;
+  font-size: clamp(24px, 5vw, 32px);
+  color: #0b3d91;
+  letter-spacing: -0.5px;
+}
+
+.section {
+  margin-top: 32px;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero (search) */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero__left {
+  flex: 1;
+  min-width: 250px;
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(24px, 5vw, 32px);
+}
+
+.hero__lead {
+  margin-top: 8px;
+  color: #555;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+.search-form {
+  margin-top: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.search-form__input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+  min-width: 0;
+}
+
+.search-form__button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #0b74de;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(11, 116, 222, 0.3);
+  transition: box-shadow 0.18s ease, transform 0.12s ease, background 0.18s;
+  white-space: nowrap;
+}
+
+.search-form__button:hover {
+  box-shadow: 0 4px 12px rgba(11, 116, 222, 0.4);
+}
+
+.search-results {
+  margin-top: 12px;
+  padding: 10px;
+  background: #f0f8ff;
+  border-radius: 6px;
+  color: #0b74de;
+}
+
+/* Why choose us */
+.why {
+  margin-top: 28px;
+}
+
+.why__list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.why__card {
+  flex: 1 1 240px;
+  padding: 20px;
+  border: 1px solid #e0ecf7;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+
+.why__card:hover {
+  box-shadow: 0 8px 24px rgba(11,116,222,0.15);
+  transform: translateY(-4px);
+}
+
+.why__icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.why__title {
+  color: #0b3d91;
+}
+
+.why__text {
+  margin-top: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .hero { flex-direction: column; }
+  .search-form { width: 100%; }
+  .search-form__input { flex-basis: 100%; }
+}
+
+@media (max-width: 480px) {
+  .search-form { flex-wrap: wrap; }
+  .search-form__button { width: 100%; }
+}
+

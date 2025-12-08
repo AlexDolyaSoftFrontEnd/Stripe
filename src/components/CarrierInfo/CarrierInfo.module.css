@@ -48,13 +48,35 @@
   grid-template-columns: 1.5fr 1fr;
   gap: 56px;
 
-  padding: 52px 0 76px;
-  max-width: 1180px;
-  margin: 0 auto;
+  padding: 52px 100px 76px;
+  width: 100%;
+  box-sizing: border-box;
 
   font-family: var(--sf-font);
 
   animation: fadeInUp var(--fade-up-time) ease forwards;
+}
+
+@media (max-width: 1024px) {
+  .carrier-info {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 60px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carrier-info {
+    gap: 32px;
+    padding: 32px 30px 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrier-info {
+    gap: 24px;
+    padding: 24px 16px 36px;
+  }
 }
 
 .carrier-info > * {

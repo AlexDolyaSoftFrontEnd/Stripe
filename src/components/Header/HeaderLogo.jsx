@@ -1,5 +1,4 @@
 import styles from "./HeaderLogo.module.css";
-import logo from "../../assets/logo.svg";
 
 export default function HeaderLogo() {
   return (

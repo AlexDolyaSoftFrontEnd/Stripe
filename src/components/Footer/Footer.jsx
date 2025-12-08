@@ -3,12 +3,12 @@ import styles from "./Footer.module.css";
 
 import logo from "./icons/logo-footer.svg";
 
-import iconPhone from "./icons/phone.svg";
 import iconMail from "./icons/mail.svg";
+import iconPhone from "./icons/phone.svg";
 
+import socialDribbble from "./icons/dribbble.svg";
 import socialFb from "./icons/fb.svg";
 import socialInst from "./icons/inst.svg";
-import socialDribbble from "./icons/dribbble.svg";
 import socialLinkedin from "./icons/linkedin.svg";
 import socialX from "./icons/x.svg";
 
@@ -30,18 +30,8 @@ export default function Footer() {
 
           <Link to="/" className={styles.footer__link}>Головна</Link>
           <Link to="/about" className={styles.footer__link}>Про нас</Link>
-          <Link to="/prices" className={styles.footer__link}>Ціни</Link>
-          <Link to="/routes" className={styles.footer__link}>Маршрути</Link>
-          <Link to="/privacy" className={styles.footer__link}>Політика приватності</Link>
-        </div>
-
-        <div className={styles.footer__col}>
-          <h4 className={styles.footer__title}>Перевізникам</h4>
-
-          <Link to="/help" className={styles.footer__link}>Help Docs</Link>
-          <Link to="/cabinet" className={styles.footer__link}>Особистий кабінет</Link>
-          <Link to="/updates" className={styles.footer__link}>Оновлення</Link>
-          <Link to="/contacts" className={styles.footer__link}>Контакти</Link>
+          <Link to="/carriers" className={styles.footer__link}>Перевізникам</Link>
+          <Link to="/profile" className={styles.footer__link}>Профіль перевізника</Link>
         </div>
 
         <div className={styles.footer__col}>

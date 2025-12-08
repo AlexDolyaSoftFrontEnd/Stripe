@@ -4,6 +4,36 @@
   box-sizing: border-box;
 }
 
+/* Коммит: Введение CSS-переменной для боковых отступов контента.
+   Описание: Добавлена переменная --site-side-padding, используемая
+   для согласованных боковых отступов по всему сайту. Фон остаётся
+   на всю ширину окна, контент сдвигается внутрь относительно меню.
+   Дата: 2025-12-08
+   Автор: AI-ассистент (внесение правок)
+*/
+:root {
+  --site-side-padding: 100px; /* desktop */
+}
+
+@media (max-width: 1024px) {
+  :root { --site-side-padding: 60px; }
+}
+
+@media (max-width: 768px) {
+  :root { --site-side-padding: 30px; }
+}
+
+@media (max-width: 480px) {
+  :root { --site-side-padding: 16px; }
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,6 +41,7 @@ body {
     sans-serif;
   background-color: #f9fafb;
   color: #111827;
+  overflow-x: hidden;
 }
 
 a {

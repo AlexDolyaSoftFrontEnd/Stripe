@@ -1,15 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-import Scroll from "./components/Scroll/Scroll";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Scroll from "./components/Scroll/Scroll";
 
 
 import CarrierHeader from "./components/CarrierHeader/CarrierHeader";
 import CarrierInfo from "./components/CarrierInfo/CarrierInfo";
-import ServiceBlock from "./components/ServiceBlock/ServiceBlock";
 import DriversSwiper from "./components/DriversSwiper/DriversSwiper";
 import ReviewsBlock from "./components/ReviewsBlock/ReviewsBlock";
+import ServiceBlock from "./components/ServiceBlock/ServiceBlock";
+import About from "./pages/About";
+import ForCarriers from "./pages/ForCarriers";
+import Home from "./pages/Home";
 
 
 const carrierData = {
@@ -31,6 +34,8 @@ const PageTitle = ({ children }) => (
       marginLeft: 24,
       marginTop: 20,
       fontWeight: 600,
+      width: "100%",
+      boxSizing: "border-box"
     }}
   >
     {children}
@@ -42,13 +47,13 @@ function App() {
       <Header />
       <Scroll />
 
-      <main style={{ minHeight: "60vh" }}>
+      <main style={{ minHeight: "60vh", width: "100%", boxSizing: "border-box" }}>
         <Routes>
-          <Route path="/" element={<PageTitle>Главная</PageTitle>} />
+          <Route path="/" element={<Home />} />
 
-          <Route path="/carriers" element={<PageTitle>Перевізникам</PageTitle>} />
+          <Route path="/carriers" element={<ForCarriers />} />
 
-          <Route path="/about" element={<PageTitle>Про нас</PageTitle>} />
+          <Route path="/about" element={<About />} />
 
           <Route
             path="/profile"
