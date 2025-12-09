@@ -6,7 +6,10 @@
   --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   padding: 24px var(--site-side-padding);
-  background: linear-gradient(135deg, #f7fbff 0%, #ffffff 100%);
+
+  /* Фон — чисто білий */
+  background: #ffffff;
+
   min-height: 100vh;
   box-sizing: border-box;
 
@@ -14,7 +17,9 @@
   padding-bottom: 80px;
 }
 
-/* Title */
+/* ================================
+   HEAD TITLE
+================================ */
 .about__title {
   margin: 20px 0 8px 0;
   font-size: clamp(24px, 5vw, 32px);
@@ -23,7 +28,9 @@
   letter-spacing: -0.5px;
 }
 
-/* Section */
+/* ================================
+   SECTION
+================================ */
 .section {
   margin-top: 32px;
   animation: fadeInUp 0.5s ease-out;
@@ -49,7 +56,9 @@
   color: var(--text-color);
 }
 
-/* Metrics */
+/* ================================
+   METRICS
+================================ */
 .metrics {
   display: flex;
   gap: 20px;
@@ -66,6 +75,7 @@
   box-shadow: var(--card-shadow);
   transition: 0.3s;
   cursor: pointer;
+  background: #fff;
 }
 
 .metrics__item:hover {
@@ -85,7 +95,9 @@
   color: #666;
 }
 
-/* Values */
+/* ================================
+   VALUES (ЦІННОСТІ)
+================================ */
 .values {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -99,6 +111,7 @@
   box-shadow: var(--card-shadow);
   transition: 0.3s;
   cursor: pointer;
+  background: #fff;
 }
 
 .values__item:hover {
@@ -118,7 +131,9 @@
   line-height: 1.6;
 }
 
-/* Team */
+/* ================================
+   TEAM
+================================ */
 .team {
   display: flex;
   gap: 20px;
@@ -135,6 +150,7 @@
   box-shadow: var(--card-shadow);
   transition: 0.3s;
   cursor: pointer;
+  background: #fff;
 }
 
 .team__item:hover {
@@ -173,7 +189,9 @@
   color: var(--muted-color);
 }
 
-/* Animations */
+/* ================================
+   ANIMATIONS
+================================ */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -182,5 +200,13 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

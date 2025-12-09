@@ -1,128 +1,172 @@
+import CarrierBreadcrumbs from "../components/CarrierHeader/CarrierBreadcrumbs";
 import styles from "./About.module.css";
+
+/* ============================================================
+   ДАНІ (місія, історія, цінності, метрики, команда)
+============================================================ */
+
+const missionText = [
+  "Робимо міжміські подорожі простими та безпечними — для пасажирів і перевізників.",
+  "Спрямовані на прозорість, зручність та доступність. Наша платформа допомагає знайти рейс, забронювати місце й оплатити поїздку за хвилини.",
+  "Ми віримо, що кожна подорож має бути комфортною, надійною та чесною.",
+];
+
+const historyText = [
+  "Платформа розпочалась із простої ідеї: дати пасажирам єдине місце для пошуку рейсів.",
+  "Створена у 2020 році, платформа об’єднала десятки перевізників, а згодом вийшла на міжнародний ринок.",
+  "Сьогодні система працює в 8 країнах та допомогла організувати понад 100 тисяч поїздок.",
+];
+
+const metrics = [
+  { value: "4k+", label: "пасажирів" },
+  { value: "8", label: "країн" },
+  { value: "100k+", label: "перевезень" },
+];
+
+const values = [
+  {
+    name: "Надійність",
+    desc: "Кожен рейс перевірений, кожен перевізник — надійний партнер.",
+  },
+  {
+    name: "Прозорість",
+    desc: "Жодних прихованих комісій — усі ціни та деталі видно одразу.",
+  },
+  {
+    name: "Швидкість",
+    desc: "Знайди рейс і забронюй місце за хвилини.",
+  },
+  {
+    name: "Доступність",
+    desc: "Підтримка 24/7 локальними мовами.",
+  },
+];
+
+const team = [
+  {
+    img: 1,
+    name: "Олена",
+    role: "CEO & Co-founder",
+    exp: "15+ років у логістиці",
+  },
+  {
+    img: 2,
+    name: "Ігор",
+    role: "Product Lead",
+    exp: "10+ років в IT",
+  },
+  {
+    img: 3,
+    name: "Марія",
+    role: "Customer Support",
+    exp: "7+ років у Customer Care",
+  },
+];
+
+/* ============================================================
+   КОМПОНЕНТ
+============================================================ */
 
 export default function About() {
   return (
     <main className={styles.about}>
+       <CarrierBreadcrumbs
+       items={[
+        { label: "Головна", to: "/" },
+        { label: "Перевізникам", to: "/carriers" },
+        { label: "Про нас", to: "/about" },
+        { label: "Профіль пепревізника", to: "/profile" },
+       ]}></CarrierBreadcrumbs>
+      {/* HEADER */}
       <header className={styles.about__header}>
         <h1 className={styles.about__title}>Про нас</h1>
       </header>
 
       {/* Наша місія */}
-      <section className={styles.section}>
-        <h2 className={styles.section__title}>Наша місія</h2>
-
-        <p className={styles.section__lead}>
-          Робимо міжміські подорожі простими та безпечними — для пасажирів і
-          перевізників. Спрямовані на прозорість, зручність та доступність.
-        </p>
-
-        <p className={styles.section__text}>
-          Ми віримо, що кожна поїздка повинна бути комфортною і надійною. Наша платформа
-          спрощує процес пошуку, бронювання та оплати квитків, економлячи час і гроші.
-          Одночасно ми допомагаємо перевізникам керувати рейсами та збільшувати
-          завантаженість автобусів.
-        </p>
-      </section>
+      <Section title="Наша місія">
+        <p className={styles.section__lead}>{missionText[0]}</p>
+        {missionText.slice(1).map((text, i) => (
+          <p key={i} className={styles.section__text}>{text}</p>
+        ))}
+      </Section>
 
       {/* Як все почалося */}
-      <section className={styles.section}>
-        <h2 className={styles.section__title}>Як все почалося</h2>
-
-        <p className={styles.section__text}>
-          Платформа розпочалась з простої ідеї: об'єднати розрізнені системи перевізників
-          та дати пасажирам єдине місце для пошуку рейсів. Заснована в 2020 році, ми
-          поступово розширили охоплення на 8 країн та обслужили більше 100 тисяч перевезень.
-        </p>
-      </section>
+      <Section title="Як все почалося">
+        {historyText.map((text, i) => (
+          <p key={i} className={styles.section__text}>{text}</p>
+        ))}
+      </Section>
 
       {/* Ключові метрики */}
-      <section className={styles.section}>
-        <h2 className={styles.section__title}>Ключові метрики</h2>
-
+      <Section title="Ключові метрики">
         <div className={styles.metrics}>
-          <article className={styles.metrics__item}>
-            <div className={styles.metrics__value}>4k+</div>
-            <div className={styles.metrics__label}>пасажирів</div>
-          </article>
-
-          <article className={styles.metrics__item}>
-            <div className={styles.metrics__value}>8</div>
-            <div className={styles.metrics__label}>країн</div>
-          </article>
-
-          <article className={styles.metrics__item}>
-            <div className={styles.metrics__value}>100k+</div>
-            <div className={styles.metrics__label}>перевезень</div>
-          </article>
-        </div>
-      </section>
-
-      {/* Наші цінності */}
-      <section className={styles.section}>
-        <h2 className={styles.section__title}>Наші цінності</h2>
-
-        <div className={styles.values}>
-          <article className={styles.values__item}>
-            <strong className={styles.values__name}>Надійність</strong>
-            <p className={styles.values__desc}>
-              Кожен рейс перевірений, кожен перевізник — надійний партнер.
-            </p>
-          </article>
-
-          <article className={styles.values__item}>
-            <strong className={styles.values__name}>Прозорість</strong>
-            <p className={styles.values__desc}>
-              Жодних прихованих комісій — усі ціни та деталі видно одразу.
-            </p>
-          </article>
-
-          <article className={styles.values__item}>
-            <strong className={styles.values__name}>Швидкість</strong>
-            <p className={styles.values__desc}>
-              Знайди рейс і забронюй місце за хвилини.
-            </p>
-          </article>
-
-          <article className={styles.values__item}>
-            <strong className={styles.values__name}>Доступність</strong>
-            <p className={styles.values__desc}>
-              Підтримка 24/7 локальними мовами.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      {/* Команда */}
-      <section className={styles.section}>
-        <h2 className={styles.section__title}>Наша команда</h2>
-
-        <p className={styles.section__text}>
-          Наша команда складається з експертів у галузі транспорту, технологій
-          та обслуговування клієнтів.
-        </p>
-
-        <div className={styles.team}>
-          {[
-            { img: 1, name: "Олена", role: "CEO & Co-founder", exp: "15+ років у логістиці" },
-            { img: 2, name: "Ігор", role: "Product Lead", exp: "10+ років в IT" },
-            { img: 3, name: "Марія", role: "Customer Support", exp: "7+ років у Customer Care" },
-          ].map((member, index) => (
-            <article key={index} className={styles.team__item}>
-              <figure className={styles.team__avatarWrapper}>
-                <img
-                  src={`https://i.pravatar.cc/150?img=${member.img}`}
-                  alt={member.name}
-                  className={styles.team__avatar}
-                />
-              </figure>
-
-              <div className={styles.team__name}>{member.name}</div>
-              <div className={styles.team__role}>{member.role}</div>
-              <p className={styles.team__exp}>{member.exp}</p>
+          {metrics.map((item) => (
+            <article key={item.label} className={styles.metrics__item}>
+              <div className={styles.metrics__value}>{item.value}</div>
+              <div className={styles.metrics__label}>{item.label}</div>
             </article>
           ))}
         </div>
-      </section>
+      </Section>
+
+      {/* Наші цінності */}
+      <Section title="Наші цінності">
+        <div className={styles.values}>
+          {values.map((v) => (
+            <article key={v.name} className={styles.values__item}>
+              <strong className={styles.values__name}>{v.name}</strong>
+              <p className={styles.values__desc}>{v.desc}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* Наша команда */}
+      <Section title="Наша команда">
+        <p className={styles.section__text}>
+          Ми зібрали команду експертів у галузі транспорту, технологій та клієнтського сервісу.
+        </p>
+
+        <div className={styles.team}>
+          {team.map((member) => (
+            <TeamCard key={member.name} data={member} />
+          ))}
+        </div>
+      </Section>
     </main>
+  );
+}
+
+/* ============================================================
+   ДОДАТКОВІ КОМПОНЕНТИ
+============================================================ */
+
+/* Загальна секція */
+function Section({ title, children }) {
+  return (
+    <section className={styles.section}>
+      <h2 className={styles.section__title}>{title}</h2>
+      {children}
+    </section>
+  );
+}
+
+/* Карточка члена команди */
+function TeamCard({ data }) {
+  return (
+    <article className={styles.team__item}>
+      <figure className={styles.team__avatarWrapper}>
+        <img
+          src={`https://i.pravatar.cc/150?img=${data.img}`}
+          alt={data.name}
+          className={styles.team__avatar}
+          loading="lazy"
+        />
+      </figure>
+
+      <div className={styles.team__name}>{data.name}</div>
+      <div className={styles.team__role}>{data.role}</div>
+      <p className={styles.team__exp}>{data.exp}</p>
+    </article>
   );
 }

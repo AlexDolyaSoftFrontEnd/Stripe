@@ -1,50 +1,29 @@
+
+:root {
+  --header-padding-max: 22px;
+  --header-padding-min: 12px;
+}
+
 .header {
   width: 100%;
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid #e5e7eb;
+  padding-block: clamp(    var(--header-padding-min),    4vw,    var(--header-padding-max)  );
+  transition: padding 0.25s ease;
 
-  /* Базовые отступы для desktop */
-  padding-block: 22px;
-  padding-inline: clamp(1rem, 5vw, 100px); /* плавная адаптация */
 }
 
 .header__container {
   max-width: 1440px;
   margin: 0 auto;
 
-  /* Плавная адаптация контейнера */
   padding-inline: clamp(1rem, 4vw, 3.2rem);
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.75rem, 2vw, 2.4rem); /* адаптивный gap */
-}
 
-/* ===== Упрощённые breakpoints без дублирования ===== */
-
-@media (max-width: 900px) {
-  .header {
-    padding-block: 20px;
-  }
-}
-
-@media (max-width: 600px) {
-  .header {
-    padding-block: 18px;
-  }
-}
-
-@media (max-width: 420px) {
-  .header {
-    padding-block: 16px;
-  }
-}
-
-@media (max-width: 360px) {
-  .header {
-    padding-block: 14px;
-  }
+  gap: clamp(0.75rem, 2vw, 2.4rem);
 }
 
   

@@ -1,13 +1,45 @@
-/* Контейнер */
-.drivers {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px 70px;
-  font-family: "Inter", sans-serif;
+:root {
+  --drivers-font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --pad-x: clamp(16px, 4vw, 80px);
+  --pad-x-desktop: 100px;
+  --pad-y: clamp(32px, 5vw, 70px);
+
+  --color-title: #0a2540;
+  --color-accent: #635bff;
+  --color-muted: #6b7280;
+
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --card-radius: 14px;
+
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.10);
 }
 
-/* Верхняя панель */
+/* ============================================================
+   КОНТЕЙНЕР
+============================================================ */
+.drivers {
+  width: 100%;
+  padding: var(--pad-y) var(--pad-x);
+  margin: 0 auto;
+  font-family: var(--drivers-font);
+  max-width: 1600px; 
+  box-sizing: border-box;
+}
+
+/* Desktop фиксированные отступы */
+@media (min-width: 1024px) {
+  .drivers {
+    padding-left: var(--pad-x-desktop);
+    padding-right: var(--pad-x-desktop);
+  }
+}
+
+/* ============================================================
+   ВЕРХНЯЯ ПАНЕЛЬ
+============================================================ */
 .drivers__top {
   display: flex;
   justify-content: space-between;
@@ -16,63 +48,81 @@
 }
 
 .drivers__title {
-  font-size: 26px;
+  font-size: clamp(22px, 2.4vw, 28px);
   font-weight: 700;
-  color: #0a2540;
+  color: var(--color-title);
+  letter-spacing: -0.3px;
 }
 
 .drivers__all {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  color: #635bff;
+  color: var(--color-accent);
   text-decoration: none;
+  transition: opacity 0.25s ease;
 }
 
 .drivers__all:hover {
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
-/* Карточка */
+/* ============================================================
+   КАРТОЧКА ВОДИТЕЛЯ
+============================================================ */
 .card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 24px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 26px 20px;
   text-align: center;
   transition: 0.25s ease;
   position: relative;
+  box-shadow: var(--shadow-soft);
 }
 
 .card:hover {
-  border-color: #d1d5db;
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: #d8dbe1;
 }
 
-/* Аватар */
+/* ============================================================
+   АВАТАР
+============================================================ */
 .avatar {
-  width: 76px;
-  height: 76px;
+  width: 78px;
+  height: 78px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 14px;
+  transition: 0.25s ease;
 }
 
-/* Имя + опыт */
+.card:hover .avatar {
+  transform: scale(1.04);
+}
+
+/* ============================================================
+   ТЕКСТ
+============================================================ */
 .name {
   font-size: 17px;
   font-weight: 700;
-  color: #0a2540;
+  color: var(--color-title);
   margin-bottom: 6px;
+  letter-spacing: -0.2px;
 }
 
 .exp {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--color-muted);
   margin-bottom: 18px;
+  line-height: 1.45;
 }
 
-/* Соцсети */
+/* ============================================================
+   СОЦСЕТИ
+============================================================ */
 .social {
   display: flex;
   justify-content: center;
@@ -90,32 +140,32 @@
 .icon:hover {
   opacity: 1;
   filter: grayscale(0);
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
-/* Исправление высоты свайпера */
+/* Fix swiper auto-height */
 .swiper-slide {
   height: auto !important;
 }
 
-/* ----------------------------------------
-   АДАПТИВНОСТЬ КАРТОЧЕК
------------------------------------------ */
+/* ============================================================
+   АДАПТИВНОСТЬ
+============================================================ */
 
-/* Планшеты ≤ 1024px */
+/* ≤ 1024px */
 @media (max-width: 1024px) {
-  .card {
-    padding: 22px 16px;
-  }
   .drivers__title {
     font-size: 24px;
   }
+  .card {
+    padding: 22px 16px;
+  }
 }
 
-/* Планшеты ≤ 768px */
+/* ≤ 768px */
 @media (max-width: 768px) {
   .drivers {
-    padding: 30px 16px 60px;
+    padding: 28px var(--pad-x);
   }
 
   .card {
@@ -123,8 +173,8 @@
   }
 
   .avatar {
-    width: 64px;
-    height: 64px;
+    width: 66px;
+    height: 66px;
   }
 
   .name {
@@ -134,28 +184,22 @@
   .exp {
     font-size: 13px;
   }
-
-  .icon {
-    width: 20px;
-    height: 20px;
-  }
 }
 
-/* Телефоны ≤ 576px */
+/* ≤ 576px */
 @media (max-width: 576px) {
   .drivers {
-    padding: 24px 14px 50px;
-  }
-
-  .card {
-    padding: 18px 14px;
-    border-radius: 12px;
+    padding: 26px 16px 50px;
   }
 
   .avatar {
     width: 58px;
     height: 58px;
-    margin-bottom: 10px;
+  }
+
+  .card {
+    border-radius: 12px;
+    padding: 18px 14px;
   }
 
   .name {
@@ -164,7 +208,6 @@
 
   .exp {
     font-size: 13px;
-    margin-bottom: 14px;
   }
 
   .icon {
@@ -173,10 +216,10 @@
   }
 }
 
-/* Маленькие телефоны ≤ 380px */
+/* ≤ 380px */
 @media (max-width: 380px) {
   .drivers {
-    padding: 22px 10px 45px;
+    padding: 24px 12px 45px;
   }
 
   .card {
@@ -196,14 +239,12 @@
     font-size: 12px;
   }
 
+  .social {
+    gap: 12px;
+  }
+
   .icon {
     width: 16px;
     height: 16px;
   }
-
-  .social {
-    gap: 12px;
-  }
 }
-
-  

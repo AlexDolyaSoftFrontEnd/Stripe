@@ -1,177 +1,178 @@
-/* Коммит: Применение переменной --site-side-padding для боковых отступов
-   Описание: Сохранён фон на всю ширину, контент теперь получает боковые
-   отступы через CSS-переменную --site-side-padding, согласованные с меню.
-   Детали: padding-block сохранён (24px), padding-inline использует переменную.
-   Дата: 2025-12-08
-   Автор: AI-ассистент
-*/
+/* ================================
+   MAIN CONTAINER
+================================ */
 .container {
   width: 100%;
-  background: linear-gradient(135deg, #f7fbff 0%, #ffffff 100%);
-  min-height: 100vh;
-  padding: 24px var(--site-side-padding);
-  box-sizing: border-box;
+  max-width: 1240px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  animation: fadeIn 0.5s ease;
 }
 
-@media (max-width: 1024px) {
-  .container { padding: 24px calc(var(--site-side-padding) * 0.6); }
-}
-
-@media (max-width: 768px) {
-  .container { padding: 16px calc(var(--site-side-padding) * 0.3); }
-}
-
-@media (max-width: 480px) {
-  .container { padding: 12px var(--site-side-padding); }
-}
-
-.title {
-  margin: 20px 0 8px 0;
-  font-weight: 700;
-  font-size: clamp(24px, 5vw, 32px);
-  color: #0b3d91;
-  letter-spacing: -0.5px;
-}
-
-.section {
-  margin-top: 32px;
-  animation: fadeInUp 0.5s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Hero (search) */
+/* ================================
+   HERO
+================================ */
 .hero {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.hero__left {
-  flex: 1;
-  min-width: 250px;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 48px;
 }
 
 .hero__title {
-  margin: 0;
-  font-size: clamp(24px, 5vw, 32px);
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 700;
+  color: #0a2540;
+  line-height: 1.2;
 }
 
-.hero__lead {
-  margin-top: 8px;
+.hero__subtitle {
   color: #555;
-  font-size: clamp(14px, 2vw, 16px);
+  font-size: clamp(14px, 2vw, 17px);
+  max-width: 480px;
 }
 
-.search-form {
-  margin-top: 14px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.search-form__input {
-  flex: 1;
-  padding: 12px 14px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: box-shadow 0.18s ease, transform 0.18s ease;
-  min-width: 0;
-}
-
-.search-form__button {
-  padding: 12px 20px;
-  border-radius: 8px;
-  background: #0b74de;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(11, 116, 222, 0.3);
-  transition: box-shadow 0.18s ease, transform 0.12s ease, background 0.18s;
-  white-space: nowrap;
-}
-
-.search-form__button:hover {
-  box-shadow: 0 4px 12px rgba(11, 116, 222, 0.4);
-}
-
-.search-results {
-  margin-top: 12px;
-  padding: 10px;
-  background: #f0f8ff;
-  border-radius: 6px;
-  color: #0b74de;
-}
-
-/* Why choose us */
-.why {
-  margin-top: 28px;
-}
-
-.why__list {
+/* ================================
+   SEARCH FORM
+================================ */
+.search {
+  margin-top: 16px;
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+.search__input {
+  flex: 1 1 200px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d6d9de;
+  font-size: 15px;
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+
+.search__input:focus {
+  border-color: #0b74de;
+  box-shadow: 0 0 0 3px rgba(11, 116, 222, 0.15);
+}
+
+.search__btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #0b74de;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.3s ease;
+  box-shadow: 0 3px 8px rgba(11, 116, 222, 0.3);
+}
+
+.search__btn:hover {
+  background: #095ec0;
+  box-shadow: 0 6px 14px rgba(11, 116, 222, 0.35);
+}
+
+.search__result {
+  margin-top: 14px;
+  padding: 12px;
+  background: #f0f8ff;
+  border-radius: 8px;
+  color: #0b74de;
+  animation: fadeIn 0.4s ease;
+}
+
+/* ================================
+   FEATURES SECTION
+================================ */
+.features {
+  margin-top: 48px;
+}
+
+.features__title {
+  margin-bottom: 24px;
+  color: #0b3d91;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  text-align: center;
+}
+
+.features__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
   justify-content: center;
 }
 
-.why__card {
-  flex: 1 1 240px;
-  padding: 20px;
-  border: 1px solid #e0ecf7;
-  border-radius: 12px;
+.feature {
+  flex: 1 1 260px;
+  max-width: 300px;
+
+  padding: 28px 24px;
+  border-radius: 16px;
+
+  background: #fff;
+  border: 1px solid #e2e8f0;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
+
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+  transition: transform .25s ease, box-shadow .25s ease;
   cursor: pointer;
+
+  min-height: 240px;
 }
 
-.why__card:hover {
-  box-shadow: 0 8px 24px rgba(11,116,222,0.15);
-  transform: translateY(-4px);
+.feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(11, 116, 222, 0.16);
 }
 
-.why__icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 12px;
+.feature__iconWrapper {
+  width: 62px;
+  height: 62px;
+  border-radius: 16px;
+  background: #eef5ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 16px;
+  box-shadow: inset 0 0 0 1px rgba(11, 116, 222, 0.15);
 }
 
-.why__title {
+.feature__icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.feature__title {
+  font-size: 17px;
+  font-weight: 600;
   color: #0b3d91;
+  margin-bottom: 8px;
 }
 
-.why__text {
-  margin-top: 8px;
-  color: #666;
-  font-size: 14px;
+.feature__desc {
+  font-size: 15px;
+  color: #636a75;
+  line-height: 1.55;
+  max-width: 240px;
 }
 
-@media (max-width: 768px) {
-  .hero { flex-direction: column; }
-  .search-form { width: 100%; }
-  .search-form__input { flex-basis: 100%; }
+/* ================================
+   ANIMATION
+================================ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
-
-@media (max-width: 480px) {
-  .search-form { flex-wrap: wrap; }
-  .search-form__button { width: 100%; }
-}
-

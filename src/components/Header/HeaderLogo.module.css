@@ -1,62 +1,93 @@
+:root {
+  --logo-primary: #3b45f8;
+  --logo-secondary: #6b7280;
+
+  --logo-title-size: clamp(1.1rem, 0.9vw + 1rem, 1.35rem);
+  --logo-subtitle-size: clamp(0.7rem, 0.4vw + 0.62rem, 0.82rem);
+
+  --logo-img-size: clamp(32px, 5vw, 42px);
+}
+
+/* =========================================
+   Основной контейнер логотипа
+   ========================================= */
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: clamp(0.55rem, 1.2vw, 0.9rem);
+
+  cursor: pointer; 
+  user-select: none;
+
+  transition: opacity 0.22s ease;
 }
 
+.logo:hover {
+  opacity: 0.96;
+}
+
+/* =========================================
+   Логотип — иконка
+   ========================================= */
 .logo__img {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: var(--logo-img-size);
+  height: var(--logo-img-size);
+
+  object-fit: contain;
+  flex-shrink: 0;
+
+  /* Микро-оживление */
+  transition: transform 0.25s ease;
 }
 
+.logo:hover .logo__img {
+  transform: scale(1.03);
+}
+
+/* =========================================
+   Текстовая часть логотипа
+   ========================================= */
 .logo__text {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: 1.18;
 }
 
+/* ----- Основной заголовок ----- */
 .logo__title {
   font-family: "Inter", sans-serif;
-  font-size: 1.3rem;
+  font-size: var(--logo-title-size);
   font-weight: 700;
-  color: #3b45f8;
-  letter-spacing: -0.5px;
-  
-  transition: opacity 0.25s ease;
+  color: var(--logo-primary);
+  letter-spacing: -0.45px;
+
+  transition: opacity 0.22s ease, text-shadow 0.22s ease;
 }
 
+/* ----- Подзаголовок ----- */
 .logo__subtitle {
   font-family: "Inter", sans-serif;
-  font-size: 0.8rem;
+  font-size: var(--logo-subtitle-size);
   font-weight: 500;
-  color: #6b7280;
-  margin-top: 3px;
+  color: var(--logo-secondary);
   letter-spacing: -0.15px;
 
   opacity: 0.85;
-  transition: opacity 0.25s ease;
+  margin-top: 3px;
+
+  transition: opacity 0.22s ease, text-shadow 0.22s ease;
 }
 
-/* лёгкий UX-эффект — чуть затемняем подзаголовок */
+/* UX-эффект: лёгкое повышение контраста при ховере */
 .logo:hover .logo__subtitle {
   opacity: 1;
+  text-shadow: 0 0 5px rgb(0 0 0 / 6%);
 }
 
-@media (max-width: 480px) {
-  .logo__img {
-    width: 34px;
-    height: 34px;
-  }
-
-  .logo__title {
-    font-size: 1.14rem;
-    letter-spacing: -0.35px;
-  }
-
-  .logo__subtitle {
-    font-size: 0.72rem;
-  }
+/* Дополнительный эффект — чуть усиливаем заголовок */
+.logo:hover .logo__title {
+  text-shadow: 0 0 8px rgb(59 69 248 / 25%);
 }
 
   

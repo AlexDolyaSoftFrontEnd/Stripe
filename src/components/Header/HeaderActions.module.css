@@ -1,58 +1,106 @@
+:root {
+  --primary: #3b45f8;
+  --primary-hover: #333dec;
+  --primary-active: #2b33d1;
+
+  --text-primary: var(--primary);
+  --text-primary-hover: #2e36d7;
+
+  --radius: 8px;
+
+  --fs-sm: clamp(0.9rem, 0.3vw + 0.85rem, 1rem);
+}
+
+/* =========================================
+   Общий блок действий (Create + Login)
+   ========================================= */
 .actions {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: clamp(0.9rem, 2vw, 1.4rem);
 }
 
-/* Линк Create */
+/* =========================================
+   Линк "Create"
+   ========================================= */
 .actions__create {
-  font-size: 0.96rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
-  color: #3b45f8;
+  color: var(--text-primary);
   text-decoration: none;
-  padding: 0.25rem 0; /* увеличивает кликабельность */
 
-  transition: color 0.25s ease, opacity 0.25s ease;
+  padding: 0.3rem 0;
+
+  transition: 
+    color 0.22s ease,
+    opacity 0.22s ease,
+    text-shadow 0.22s ease;
 }
 
 .actions__create:hover {
-  color: #2e36d7;
-  opacity: 0.9;
+  color: var(--text-primary-hover);
+  opacity: 0.92;
+
+  /* Микро-свечение текста */
+  text-shadow: 0 0 6px rgb(59 69 248 / 28%);
 }
 
-/* Кнопка Login */
+.actions__create:active {
+  opacity: 0.8;
+  text-shadow: none;
+}
+
+/* =========================================
+   Кнопка "Login"
+   ========================================= */
 .actions__login {
-  background: #3b45f8;
+  background: var(--primary);
   color: #ffffff;
 
-  font-size: 0.96rem;
+  font-size: var(--fs-sm);
   font-weight: 600;
 
-  padding: 0.58rem 1.25rem;
-  border-radius: 8px;
+  padding: 0.58rem 1.3rem;
+  border-radius: var(--radius);
 
   border: none;
   cursor: pointer;
+  outline: none;
 
-  transition: background-color 0.25s ease, transform 0.18s ease, opacity 0.25s ease;
+  /* Гладкие анимации */
+  transition:
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease,
+    opacity 0.22s ease;
 }
 
-/* Hover + micro-interaction */
+/* Hover */
 .actions__login:hover {
-  background: #333dec;
-  opacity: 0.95;
-  transform: translateY(-1px);
+  background: var(--primary-hover);
+  opacity: 0.97;
+
+  box-shadow: 0 4px 14px rgba(59, 69, 248, 0.18);
+
+  transform: translateY(-2px);
 }
 
+/* Active */
 .actions__login:active {
+  background: var(--primary-active);
   transform: translateY(0);
-  opacity: 0.85;
+  opacity: 0.9;
+  box-shadow: none;
 }
 
+/* =========================================
+   Mobile
+   ========================================= */
 @media (max-width: 900px) {
   .actions {
     display: none;
   }
 }
+
 
   

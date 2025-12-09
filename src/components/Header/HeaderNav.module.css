@@ -1,74 +1,105 @@
+/* =========================================
+   Блок навигации
+   ========================================= */
 .nav {
   flex: 1;
 }
 
+/* =========================================
+   Список ссылок
+   ========================================= */
 .nav__list {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(1.2rem, 2.2vw, 2rem);
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
+/* =========================================
+   Ссылки навигации
+   ========================================= */
 .nav__link {
   position: relative;
   display: inline-flex;
   align-items: center;
 
-  color: var(--color-gray);
-  font-size: 0.95rem;
+  font-size: clamp(0.88rem, 0.3vw + 0.8rem, 0.98rem);
   font-weight: 600;
+
+  color: var(--color-gray);
   text-decoration: none;
 
   padding-bottom: 4px;
-  transition: color var(--transition-fast), opacity var(--transition-fast);
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast),
+    opacity var(--transition-fast),
+    text-shadow 0.22s ease;
 }
 
-/* Hover underline */
+/* -----------------------------------------
+   Hover state — цвет + лёгкое свечение текста
+   ----------------------------------------- */
+.nav__link:hover {
+  color: var(--color-primary);
+  opacity: 0.88;
+  text-shadow: 0 0 6px rgb(59 69 248 / 20%);
+}
+
+/* -----------------------------------------
+   Underline animation
+   ----------------------------------------- */
 .nav__link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;
+  bottom: -1.5px;
 
   width: 0%;
   height: 2px;
-
   background-color: var(--color-primary);
-  border-radius: 1px;
+  border-radius: 2px;
 
-  transition: width var(--transition-medium);
-}
-
-.nav__link:hover {
-  color: var(--color-primary);
-  opacity: 0.85;
+  transition:
+    width 0.26s ease,
+    opacity 0.22s ease;
+  opacity: 0;
 }
 
 .nav__link:hover::after {
   width: 100%;
+  opacity: 1;
 }
 
-/* Active state */
+/* =========================================
+   Активная ссылка
+   ========================================= */
 .nav__link_active {
   color: var(--color-primary);
+  opacity: 1;
 }
 
 .nav__link_active::after {
   width: 100%;
+  opacity: 1;
 }
 
-/* Slight fade for inactive items when some item is active */
+/* -----------------------------------------
+   Эффект затухания остальных ссылок
+   ----------------------------------------- */
 .nav__list:hover .nav__link:not(.nav__link_active) {
-  opacity: 0.6;
+  opacity: 0.55;
+  text-shadow: none;
 }
 
-/* Responsive */
+/* =========================================
+   Responsive
+   ========================================= */
 @media (max-width: 900px) {
   .nav {
     display: none;
   }
 }
-
-  

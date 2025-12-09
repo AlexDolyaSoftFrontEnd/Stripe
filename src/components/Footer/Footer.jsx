@@ -13,27 +13,53 @@ import socialLinkedin from "./icons/linkedin.svg";
 import socialX from "./icons/x.svg";
 
 export default function Footer() {
+  const navLinks = [
+    { to: "/", label: "Головна" },
+    { to: "/about", label: "Про нас" },
+    { to: "/carriers", label: "Перевізникам" },
+    { to: "/profile", label: "Профіль перевізника" },
+  ];
+
+  const socials = [
+    { src: socialFb, alt: "Facebook" },
+    { src: socialInst, alt: "Instagram" },
+    { src: socialDribbble, alt: "Dribbble" },
+    { src: socialLinkedin, alt: "LinkedIn" },
+    { src: socialX, alt: "X (Twitter)" },
+  ];
+
+  const contacts = [
+    { icon: iconPhone, text: "+ 38 (097) 555 55 55", alt: "Телефон" },
+    { icon: iconMail, text: "Sprintes@gmail.com", alt: "Email" },
+  ];
+
   return (
     <footer className={styles.footer}>
+      {/* Основной контейнер */}
       <div className={styles.footer__container}>
+        
+        {/* Колонка: логотип */}
         <div className={styles.footer__col}>
-          <img src={logo} alt="logo" className={styles.footer__logo} />
+          <img src={logo} alt="Логотип Sprinters" className={styles.footer__logo} />
 
           <p className={styles.footer__desc}>
             Платформа пошуку перевізників<br />
-            та бронювання поїздок
+            та бронювання поїздок.
           </p>
         </div>
 
+        {/* Колонка: навигация */}
         <div className={styles.footer__col}>
           <h4 className={styles.footer__title}>Клієнтам</h4>
 
-          <Link to="/" className={styles.footer__link}>Головна</Link>
-          <Link to="/about" className={styles.footer__link}>Про нас</Link>
-          <Link to="/carriers" className={styles.footer__link}>Перевізникам</Link>
-          <Link to="/profile" className={styles.footer__link}>Профіль перевізника</Link>
+          {navLinks.map(({ to, label }) => (
+            <Link key={to} to={to} className={styles.footer__link}>
+              {label}
+            </Link>
+          ))}
         </div>
 
+        {/* Колонка: зворотний зв'язок */}
         <div className={styles.footer__col}>
           <h4 className={styles.footer__title}>Зворотний зв'язок</h4>
 
@@ -41,33 +67,29 @@ export default function Footer() {
             Маєш пропозиції щодо покращення сервісу? — пиши нам!
           </p>
 
-          <form className={styles.footer__form}>
-            <input type="email" placeholder="Email Address" />
+          <form className={styles.footer__form} aria-label="Форма для зворотного зв’язку">
+            <input type="email" placeholder="Email Address" aria-label="Email" />
             <button type="submit">Надіслати</button>
           </form>
 
-          <div className={styles.footer__contact}>
-            <img src={iconPhone} alt="phone" />
-            <span>+ 38 (073) 555 55 55</span>
-          </div>
-
-          <div className={styles.footer__contact}>
-            <img src={iconMail} alt="mail" />
-            <span>gmail@gmail.com</span>
-          </div>
+          {contacts.map(({ icon, text, alt }, i) => (
+            <div key={i} className={styles.footer__contact}>
+              <img src={icon} alt={alt} />
+              <span>{text}</span>
+            </div>
+          ))}
         </div>
 
       </div>
 
+      {/* Нижняя панель */}
       <div className={styles.footer__bottom}>
-        <p>2024 © Sprinters. All rights reserved.</p>
+        <p>2026 © Sprinters</p>
 
         <div className={styles.footer__socials}>
-          <img src={socialFb} alt="fb" />
-          <img src={socialInst} alt="inst" />
-          <img src={socialDribbble} alt="dribbble" />
-          <img src={socialLinkedin} alt="linkedin" />
-          <img src={socialX} alt="x" />
+          {socials.map(({ src, alt }, i) => (
+            <img key={i} src={src} alt={alt} />
+          ))}
         </div>
       </div>
     </footer>

@@ -1,31 +1,28 @@
 import CarrierBreadcrumbs from "./CarrierBreadcrumbs";
-import CarrierAvatar from "./CarrierAvatar";
-import CarrierTitle from "./CarrierTitle";
-import CarrierStats from "./CarrierStats";
-
 import styles from "./CarrierHeader.module.css";
 
-export default function CarrierHeader({ carrier }) {
+export default function CarrierHeader({ title = "Профіль перевізника", subtitle }) {
   return (
-    <div className={styles.header}>
-      
-      <CarrierBreadcrumbs
-        items={[
-          { label: "Головна", to: "/" },
-          { label: "Профіль перевізника", to: "/carriers" }
-        ]}
-        current={carrier.name}
-      />
+    <header className={styles.header}>
+      <div className={styles.header__inner}>
+        
+        {/* Хлебные крошки */}
+        <CarrierBreadcrumbs
+          items={[
+            { label: "Головна", to: "/" },
+            { label: "Перевізникам", to: "/carriers" },
+            { label: "Про нас", to: "/about" },
+            { label: "Профіль пепревізника", to: "/profile" },
+          ]}
+        />
 
-      <div className={styles.header__content}>
-        <CarrierAvatar image={carrier.logo} />
+        {/* Заголовок страницы */}
+        <h1 className={styles.header__title}>{title}</h1>
 
-        <div className={styles.header__right}>
-          <CarrierTitle carrier={carrier} />
-          <CarrierStats carrier={carrier} />
-        </div>
+        {/* Опциональный подзаголовок */}
+        {subtitle && <p className={styles.header__subtitle}>{subtitle}</p>}
       </div>
-    </div>
+    </header>
   );
 }
 

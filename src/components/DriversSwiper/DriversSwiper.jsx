@@ -1,8 +1,7 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { Link } from "react-router-dom";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./DriversSwiper.module.css";
-
 
 import driver1 from "./images/driver1.png";
 import driver2 from "./images/driver2.png";
@@ -10,77 +9,80 @@ import driver3 from "./images/driver3.png";
 import driver4 from "./images/driver4.png";
 import driver5 from "./images/driver5.png";
 
-
 import instagramIcon from "./icons/instagram.svg";
 import linkedinIcon from "./icons/linkedin.svg";
 
+/* ----------------------------------------------------
+   Массив водіїв з соціальними мережами
+---------------------------------------------------- */
 const drivers = [
   {
     id: 1,
     name: "Олександр",
     exp: "Досвід роботи: 5 років",
     avatar: driver1,
-    socials: {
-      instagram: "/drivers/oleksandr/instagram",
-      linkedin: "/drivers/oleksandr/linkedin",
-    },
+    socials: [
+      { type: "instagram", to: "/drivers/oleksandr/instagram", icon: instagramIcon },
+      { type: "linkedin", to: "/drivers/oleksandr/linkedin", icon: linkedinIcon },
+    ],
   },
   {
     id: 2,
     name: "Володимир",
     exp: "Досвід роботи: 7 років",
     avatar: driver2,
-    socials: {
-      instagram: "/drivers/volodymyr/instagram",
-      linkedin: "/drivers/volodymyr/linkedin",
-    },
+    socials: [
+      { type: "instagram", to: "/drivers/volodymyr/instagram", icon: instagramIcon },
+      { type: "linkedin", to: "/drivers/volodymyr/linkedin", icon: linkedinIcon },
+    ],
   },
   {
     id: 3,
     name: "Ірина",
     exp: "Досвід роботи: 1 рік",
     avatar: driver3,
-    socials: {
-      instagram: "/drivers/iryna/instagram",
-      linkedin: "/drivers/iryna/linkedin",
-    },
+    socials: [
+      { type: "instagram", to: "/drivers/iryna/instagram", icon: instagramIcon },
+      { type: "linkedin", to: "/drivers/iryna/linkedin", icon: linkedinIcon },
+    ],
   },
   {
     id: 4,
     name: "Михайло",
     exp: "Досвід роботи: 1 рік",
     avatar: driver4,
-    socials: {
-      instagram: "/drivers/mykhailo/instagram",
-      linkedin: "/drivers/mykhailo/linkedin",
-    },
+    socials: [
+      { type: "instagram", to: "/drivers/mykhailo/instagram", icon: instagramIcon },
+      { type: "linkedin", to: "/drivers/mykhailo/linkedin", icon: linkedinIcon },
+    ],
   },
   {
     id: 5,
     name: "Юлія",
     exp: "Досвід роботи: 2 роки",
     avatar: driver5,
-    socials: {
-      instagram: "/drivers/yuliya/instagram",
-      linkedin: "/drivers/yuliya/linkedin",
-    },
+    socials: [
+      { type: "instagram", to: "/drivers/yuliya/instagram", icon: instagramIcon },
+      { type: "linkedin", to: "/drivers/yuliya/linkedin", icon: linkedinIcon },
+    ],
   },
 ];
 
+/* ----------------------------------------------------
+   Компонент
+---------------------------------------------------- */
 export default function DriversSwiper() {
   return (
     <section className={styles.drivers}>
       <div className={styles.drivers__top}>
         <h2 className={styles.drivers__title}>Наші водії</h2>
-        <Link to="/drivers" className={styles.drivers__all}>
-          Усі водії (7)
-        </Link>
       </div>
 
       <Swiper
+        aria-label="Список водіїв"
         spaceBetween={20}
-        slidesPerView={5}
         grabCursor={true}
+        slidesPerView={5}
         breakpoints={{
           1200: { slidesPerView: 5 },
           992: { slidesPerView: 4 },
@@ -89,23 +91,31 @@ export default function DriversSwiper() {
           0: { slidesPerView: 1 },
         }}
       >
-        {drivers.map((d) => (
-          <SwiperSlide key={d.id}>
+        {drivers.map((driver) => (
+          <SwiperSlide key={driver.id}>
             <div className={styles.card}>
-              <img src={d.avatar} className={styles.avatar} alt={d.name} />
+              
+              <img
+                src={driver.avatar}
+                className={styles.avatar}
+                alt={`Водій ${driver.name}`}
+              />
 
-              <h3 className={styles.name}>{d.name}</h3>
-              <p className={styles.exp}>{d.exp}</p>
+              <h3 className={styles.name}>{driver.name}</h3>
+              <p className={styles.exp}>{driver.exp}</p>
 
               <div className={styles.social}>
-                <Link to={d.socials.instagram}>
-                  <img src={instagramIcon} className={styles.icon} alt="instagram" />
-                </Link>
-
-                <Link to={d.socials.linkedin}>
-                  <img src={linkedinIcon} className={styles.icon} alt="linkedin" />
-                </Link>
+                {driver.socials.map((s) => (
+                  <Link key={s.type} to={s.to} aria-label={s.type}>
+                    <img
+                      src={s.icon}
+                      className={styles.icon}
+                      alt={`${driver.name} ${s.type}`}
+                    />
+                  </Link>
+                ))}
               </div>
+
             </div>
           </SwiperSlide>
         ))}
