@@ -1,4 +1,3 @@
-import CarrierBreadcrumbs from "../components/CarrierHeader/CarrierBreadcrumbs";
 import styles from "./About.module.css";
 
 /* ============================================================
@@ -70,17 +69,6 @@ const team = [
 export default function About() {
   return (
     <main className={styles.about}>
-       <CarrierBreadcrumbs
-       items={[
-        { label: "Головна", to: "/" },
-        { label: "Перевізникам", to: "/carriers" },
-        { label: "Про нас", to: "/about" },
-        { label: "Профіль пепревізника", to: "/profile" },
-       ]}></CarrierBreadcrumbs>
-      {/* HEADER */}
-      <header className={styles.about__header}>
-        <h1 className={styles.about__title}>Про нас</h1>
-      </header>
 
       {/* Наша місія */}
       <Section title="Наша місія">
@@ -141,7 +129,6 @@ export default function About() {
    ДОДАТКОВІ КОМПОНЕНТИ
 ============================================================ */
 
-/* Загальна секція */
 function Section({ title, children }) {
   return (
     <section className={styles.section}>
@@ -151,7 +138,6 @@ function Section({ title, children }) {
   );
 }
 
-/* Карточка члена команди */
 function TeamCard({ data }) {
   return (
     <article className={styles.team__item}>

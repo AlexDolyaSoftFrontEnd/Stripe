@@ -1,22 +1,8 @@
-import CarrierBreadcrumbs from "../components/CarrierHeader/CarrierBreadcrumbs";
 import styles from "./ForCarriers.module.css";
 
 export default function ForCarriers() {
   return (
     <main className={styles.carriers}>
-      {/* Хлібні крихти */}
-      <CarrierBreadcrumbs
-        items={[
-          { label: "Головна", to: "/" },
-          { label: "Перевізникам", to: "/carriers" },
-          { label: "Профіль перевізника", to: "/profile" },
-        ]}
-      />
-
-      {/* Заголовок */}
-      <header className={styles.carriers__header}>
-        <h1 className={styles.carriers__title}>Перевізникам</h1>
-      </header>
 
       {/* Інтро секція */}
       <section className={styles.carriers__intro}>
@@ -85,5 +71,3 @@ export default function ForCarriers() {
     </main>
   );
 }
-
-

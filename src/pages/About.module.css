@@ -1,50 +1,64 @@
 .about {
   --title-color: #0b3d91;
+  --subtitle-color: #0b3d91;
   --text-color: #555;
   --muted-color: #999;
   --border-color: #e0ecf7;
+  --accent-color: #0b74de;
+
+  --card-radius: 12px;
   --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 8px 24px rgba(11, 116, 222, 0.15);
 
-  padding: 24px var(--site-side-padding);
+  --title-font: clamp(26px, 5vw, 34px);
+  --subtitle-font: 20px;
+  --text-font: 16px;
+  --small-font: 14px;
 
-  /* Фон — чисто білий */
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
   background: #ffffff;
-
   min-height: 100vh;
   box-sizing: border-box;
-
-  /* нижній відступ для всього контенту */
-  padding-bottom: 80px;
+  font-family: "Inter", sans-serif;
 }
 
 /* ================================
    HEAD TITLE
 ================================ */
-.about__title {
-  margin: 20px 0 8px 0;
-  font-size: clamp(24px, 5vw, 32px);
-  color: var(--title-color);
-  font-weight: 700;
-  letter-spacing: -0.5px;
+.about__header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 50px;
+  margin-bottom: 36px;
+  text-align: left;
 }
 
 /* ================================
    SECTION
 ================================ */
 .section {
-  margin-top: 32px;
+  margin-top: 48px;
   animation: fadeInUp 0.5s ease-out;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .section__title {
-  margin-bottom: 16px;
-  font-weight: 700;
-  font-size: 20px;
-  color: var(--title-color);
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: clamp(20px, 3vw, 26px);
+  color: #0b3d91;
+  line-height: 1.3;
+  text-align: left;
 }
 
 .section__lead {
-  font-size: 16px;
+  font-size: var(--text-font);
   line-height: 1.8;
   color: var(--text-color);
 }
@@ -67,67 +81,68 @@
 }
 
 .metrics__item {
-  flex: 1 1 140px;
+  flex: 1 1 160px;
   padding: 20px;
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   text-align: center;
+  background: #fff;
   box-shadow: var(--card-shadow);
   transition: 0.3s;
   cursor: pointer;
-  background: #fff;
 }
 
 .metrics__item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(11, 116, 222, 0.15);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .metrics__value {
-  font-size: 24px;
-  color: #0b74de;
+  font-size: 26px;
+  color: var(--accent-color);
   font-weight: 700;
 }
 
 .metrics__label {
   margin-top: 8px;
-  font-size: 14px;
+  font-size: var(--small-font);
   color: #666;
 }
 
 /* ================================
-   VALUES (ЦІННОСТІ)
+   VALUES
 ================================ */
 .values {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .values__item {
-  padding: 16px;
+  padding: 20px;
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: var(--card-radius);
+  background: #fff;
   box-shadow: var(--card-shadow);
   transition: 0.3s;
   cursor: pointer;
-  background: #fff;
 }
 
 .values__item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(11, 116, 222, 0.15);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .values__name {
-  color: var(--title-color);
+  color: var(--subtitle-color);
   font-size: 15px;
+  font-weight: 600;
 }
 
 .values__desc {
-  font-size: 14px;
-  color: #666;
   margin-top: 8px;
+  font-size: var(--small-font);
+  color: var(--text-color);
   line-height: 1.6;
 }
 
@@ -142,50 +157,51 @@
 }
 
 .team__item {
-  flex: 1 1 200px;
-  padding: 16px;
+  flex: 1 1 220px;
+  padding: 20px;
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: var(--card-radius);
+  background: #fff;
   text-align: center;
   box-shadow: var(--card-shadow);
   transition: 0.3s;
   cursor: pointer;
-  background: #fff;
 }
 
 .team__item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(11, 116, 222, 0.15);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .team__avatarWrapper {
+  margin-bottom: 12px;
   display: flex;
   justify-content: center;
-  margin-bottom: 12px;
 }
 
 .team__avatar {
   width: 72px;
   height: 72px;
+  object-fit: cover;
   border-radius: 50%;
   border: 3px solid var(--border-color);
-  object-fit: cover;
 }
 
 .team__name {
   font-weight: 600;
-  color: var(--title-color);
+  color: var(--subtitle-color);
+  margin-top: 4px;
 }
 
 .team__role {
-  margin-top: 4px;
-  font-size: 14px;
+  font-size: var(--small-font);
   color: #666;
+  margin-top: 4px;
 }
 
 .team__exp {
-  margin-top: 8px;
   font-size: 13px;
+  margin-top: 8px;
   color: var(--muted-color);
 }
 
@@ -202,11 +218,8 @@
     transform: translateY(0);
   }
 }
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

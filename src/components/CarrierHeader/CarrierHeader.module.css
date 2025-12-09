@@ -1,7 +1,6 @@
 .header {
   width: 100%;
   padding: 20px 0;
-  background: #ffffff;
   animation: fadeIn 0.4s ease;
 }
 
@@ -14,6 +13,8 @@
 
 .header__title {
   margin-top: 6px;
+  margin-left: -40px;
+  background-color: #F9FAFB;
   font-size: clamp(24px, 4vw, 32px);
   font-weight: 700;
   color: #0b3d91;
