@@ -89,10 +89,6 @@ export default function About() {
 
       {/* Наша команда */}
       <Section title="Наша команда">
-        <p className={styles.about__text}>
-          Ми зібрали команду експертів у галузі транспорту, технологій та клієнтського сервісу.
-        </p>
-
         <div className={styles.about__team}>
           {team.map((member) => (
             <TeamCard key={member.name} data={member} />
