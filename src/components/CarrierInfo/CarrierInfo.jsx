@@ -4,7 +4,6 @@ import bus1 from "./images/bus1.png";
 import bus2 from "./images/bus2.png";
 import bus3 from "./images/bus3.png";
 
-import CarrierHeader from "../CarrierHeader/CarrierHeader";
 import Calendar from "./Calendar";
 
 /* ============================================================
@@ -81,7 +80,6 @@ const gallery = [bus1, bus2, bus3];
 export default function CarrierInfo() {
   return (
     <>
-      <CarrierHeader title="Профиль перевізника" />
 
       <section className={styles["carrier-info"]}>
         {/* LEFT SIDE */}

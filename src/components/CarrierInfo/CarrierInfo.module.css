@@ -23,62 +23,78 @@
 
   --fade-up-time: 0.55s;
 
-  /* Основные внутренние отступы */
   --pad-x: clamp(16px, 4vw, 80px);
   --pad-y: clamp(24px, 5vw, 72px);
 
-  /* COMMIT: Добавлен фиксированный десктопный паддинг по бокам */
-  --pad-x-desktop: 100px;
+  /* Desktop container width */
+  --container-max: 1440px;
+}
+
+/* ============================================================
+   PAGE BACKGROUND — WHITE SIDES
+============================================================ */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: var(--sf-font);
 }
 
 /* ============================================================
    ANIMATIONS
 ============================================================ */
 
-/* COMMIT: Добавлена анимация появления снизу вверх */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(22px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* COMMIT: Классическое плавное появление */
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
 /* ============================================================
-   ROOT LAYOUT — FULL WIDTH PREMIUM VIEW
+   MAIN CONTAINER — CENTERED PANEL
 ============================================================ */
 
-/* COMMIT: Основная сетка секции, full-width + адаптивный gap */
 .carrier-info {
-  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+
   padding: var(--pad-y) var(--pad-x);
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: clamp(32px, 4vw, 72px);
 
-  font-family: var(--sf-font);
-  box-sizing: border-box;
+  background: var(--surface);
+  backdrop-filter: blur(22px);
 
+  border-left: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.04),
+    0 20px 60px rgba(0,0,0,0.06);
+
+  box-sizing: border-box;
   animation: fadeInUp var(--fade-up-time) ease forwards;
 }
 
-/* COMMIT: Включаем фиксированные отступы 100px на десктопах */
-@media (min-width: 1024px) {
-  .carrier-info {
-    padding-left: var(--pad-x-desktop);
-    padding-right: var(--pad-x-desktop);
-  }
-}
-
-/* COMMIT: Аккуратная анимация для всех детей */
+/* Smooth animation for children */
 .carrier-info > * {
   animation: fadeInUp var(--fade-up-time) ease forwards;
 }
 
-/* COMMIT: Созданы задержки анимации для более живого UI */
 .carrier-info__left  { animation-delay: 0.06s; }
 .carrier-info__right { animation-delay: 0.12s; }
 
@@ -86,7 +102,6 @@
    RESPONSIVE GRID
 ============================================================ */
 
-/* COMMIT: Переключение сетки на одну колонку */
 @media (max-width: 1100px) {
   .carrier-info {
     grid-template-columns: 1fr;
@@ -97,7 +112,6 @@
    TYPOGRAPHY
 ============================================================ */
 
-/* COMMIT: Адаптивный крупный заголовок */
 .carrier-info__title {
   font-size: clamp(24px, 2.6vw, 32px);
   font-weight: 700;
@@ -106,7 +120,6 @@
   margin-bottom: 18px;
 }
 
-/* COMMIT: Подзаголовок в стиле iOS Settings */
 .carrier-info__subtitle {
   font-size: clamp(18px, 1.8vw, 22px);
   font-weight: 600;
@@ -114,7 +127,6 @@
   color: var(--text-primary);
 }
 
-/* COMMIT: Основной текст с мягкой читабельностью */
 .carrier-info__text {
   font-size: clamp(15px, 1vw, 17px);
   line-height: 1.65;
@@ -127,7 +139,6 @@
    SOCIAL LINKS
 ============================================================ */
 
-/* COMMIT: Контейнер соц-кнопок */
 .carrier-info__social {
   display: flex;
   flex-wrap: wrap;
@@ -135,7 +146,6 @@
   margin-bottom: 28px;
 }
 
-/* COMMIT: Капсульные кнопки как в Apple ID Panel */
 .carrier-info__social-link {
   display: flex;
   align-items: center;
@@ -152,13 +162,12 @@
   font-size: 15px;
   font-weight: 500;
   color: var(--blue);
-
   text-decoration: none;
+
   box-shadow: var(--shadow-soft);
   transition: 0.25s ease;
 }
 
-/* COMMIT: Hover-эффект Apple UI */
 .carrier-info__social-link:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
@@ -169,7 +178,6 @@
    GALLERY
 ============================================================ */
 
-/* COMMIT: Версия галереи, напоминающая macOS Photos */
 .carrier-info__gallery {
   display: flex;
   flex-direction: column;
@@ -177,15 +185,15 @@
   margin-bottom: 36px;
 }
 
-/* COMMIT: Добавлены тени, анимации и масштабирование */
 .carrier-info__gallery img {
   width: 100%;
   height: clamp(150px, 22vw, 260px);
   object-fit: cover;
   border-radius: var(--radius-m);
-  opacity: 0;
 
+  opacity: 0;
   animation: fadeIn 0.55s ease forwards;
+
   transition: 0.35s ease;
   box-shadow: var(--shadow-soft);
 }
@@ -195,7 +203,6 @@
   box-shadow: var(--shadow-hover);
 }
 
-/* COMMIT: Постепенная задержка появления изображений */
 .carrier-info__gallery img:nth-child(2) { animation-delay: 0.12s; }
 .carrier-info__gallery img:nth-child(3) { animation-delay: 0.22s; }
 
@@ -203,7 +210,6 @@
    COUNTRIES LIST
 ============================================================ */
 
-/* COMMIT: Правый блок с разделителем — в стиле iOS Settings */
 .carrier-info__right {
   border-bottom: 1px solid var(--border-light);
   padding-bottom: clamp(24px, 4vw, 44px);
@@ -215,7 +221,6 @@
   list-style: none;
 }
 
-/* COMMIT: Элемент списка стран, мягкий hover */
 .carrier-info__country {
   display: flex;
   align-items: center;
@@ -236,7 +241,6 @@
   border-radius: 3px;
 }
 
-/* COMMIT: Сдвиг + акцент Apple-синего цвета */
 .carrier-info__country:hover {
   padding-left: 6px;
   color: var(--blue);
@@ -246,7 +250,6 @@
    MOBILE OPTIMIZATION
 ============================================================ */
 
-/* COMMIT: Оптимизация на телефонах */
 @media (max-width: 768px) {
   .carrier-info {
     padding: var(--pad-y) var(--pad-x);
@@ -258,7 +261,6 @@
     padding-bottom: 0;
   }
 
-  /* COMMIT: Социальные кнопки на 100% ширины */
   .carrier-info__social-link {
     width: 100%;
     justify-content: center;

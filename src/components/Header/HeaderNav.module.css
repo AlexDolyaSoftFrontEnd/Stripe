@@ -1,72 +1,96 @@
 /* =========================================
-   Блок навигации
-   ========================================= */
+   NAV WRAPPER
+========================================= */
+
 .nav {
-  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 /* =========================================
-   Список ссылок
-   ========================================= */
+   NAV LIST — FLEX ROW
+========================================= */
+
 .nav__list {
   display: flex;
   align-items: center;
-  gap: clamp(1.2rem, 2.2vw, 2rem);
+  gap: 36px;
+
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 /* =========================================
-   Ссылки навигации
-   ========================================= */
+   NAV ITEM (optional, for future)
+========================================= */
+
+.nav__item {
+  display: flex;
+  align-items: center;
+}
+
+/* =========================================
+   NAV LINK — BASE
+========================================= */
+
 .nav__link {
   position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 
-  font-size: clamp(0.88rem, 0.3vw + 0.8rem, 0.98rem);
+  padding: 6px 0;
+
+  font-size: clamp(0.9rem, 0.3vw + 0.8rem, 1rem);
   font-weight: 600;
+  line-height: 1.2;
 
   color: var(--color-gray);
   text-decoration: none;
-
-  padding-bottom: 4px;
   cursor: pointer;
 
   transition:
     color var(--transition-fast),
     opacity var(--transition-fast),
+    transform 0.18s ease,
     text-shadow 0.22s ease;
 }
 
-/* -----------------------------------------
-   Hover state — цвет + лёгкое свечение текста
-   ----------------------------------------- */
+/* =========================================
+   HOVER — COLOR + MICRO MOTION
+========================================= */
+
 .nav__link:hover {
   color: var(--color-primary);
-  opacity: 0.88;
-  text-shadow: 0 0 6px rgb(59 69 248 / 20%);
+  opacity: 0.9;
+  transform: translateY(-1px);
+  text-shadow: 0 0 6px rgb(59 69 248 / 22%);
 }
 
-/* -----------------------------------------
-   Underline animation
-   ----------------------------------------- */
+/* =========================================
+   UNDERLINE — ANIMATED
+========================================= */
+
 .nav__link::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -1.5px;
+  left: 50%;
+  bottom: -3px;
 
-  width: 0%;
+  width: 0;
   height: 2px;
+
   background-color: var(--color-primary);
   border-radius: 2px;
+
+  transform: translateX(-50%);
+  opacity: 0;
 
   transition:
     width 0.26s ease,
     opacity 0.22s ease;
-  opacity: 0;
 }
 
 .nav__link:hover::after {
@@ -75,8 +99,9 @@
 }
 
 /* =========================================
-   Активная ссылка
-   ========================================= */
+   ACTIVE LINK
+========================================= */
+
 .nav__link_active {
   color: var(--color-primary);
   opacity: 1;
@@ -87,17 +112,33 @@
   opacity: 1;
 }
 
-/* -----------------------------------------
-   Эффект затухания остальных ссылок
-   ----------------------------------------- */
+/* =========================================
+   FADE OTHER LINKS ON HOVER
+========================================= */
+
 .nav__list:hover .nav__link:not(.nav__link_active) {
-  opacity: 0.55;
+  opacity: 0.5;
   text-shadow: none;
 }
 
 /* =========================================
-   Responsive
-   ========================================= */
+   ACCESSIBILITY — FOCUS
+========================================= */
+
+.nav__link:focus-visible {
+  outline: none;
+  color: var(--color-primary);
+}
+
+.nav__link:focus-visible::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
 @media (max-width: 900px) {
   .nav {
     display: none;

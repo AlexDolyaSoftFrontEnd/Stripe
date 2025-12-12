@@ -1,3 +1,7 @@
+/* ============================================================
+   ROOT VARIABLES
+============================================================ */
+
 :root {
   --drivers-font: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
@@ -15,18 +19,43 @@
 
   --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.06);
   --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.10);
+
+  --container-max: 1600px;
 }
 
 /* ============================================================
-   КОНТЕЙНЕР
+   PAGE BACKGROUND — WHITE SIDES
 ============================================================ */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: var(--drivers-font);
+}
+
+/* ============================================================
+   MAIN CONTAINER — CENTERED PANEL
+============================================================ */
+
 .drivers {
   width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+
   padding: var(--pad-y) var(--pad-x);
-  margin: 0 auto;
-  font-family: var(--drivers-font);
-  max-width: 1600px; 
   box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-left: 1px solid #f0f1f3;
+  border-right: 1px solid #f0f1f3;
+
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.02),
+    0 20px 60px rgba(0,0,0,0.05);
 }
 
 /* Desktop фиксированные отступы */
@@ -38,8 +67,9 @@
 }
 
 /* ============================================================
-   ВЕРХНЯЯ ПАНЕЛЬ
+   TOP BAR
 ============================================================ */
+
 .drivers__top {
   display: flex;
   justify-content: space-between;
@@ -67,17 +97,19 @@
 }
 
 /* ============================================================
-   КАРТОЧКА ВОДИТЕЛЯ
+   DRIVER CARD
 ============================================================ */
+
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--card-radius);
   padding: 26px 20px;
   text-align: center;
-  transition: 0.25s ease;
   position: relative;
+
   box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
 }
 
 .card:hover {
@@ -87,8 +119,9 @@
 }
 
 /* ============================================================
-   АВАТАР
+   AVATAR
 ============================================================ */
+
 .avatar {
   width: 78px;
   height: 78px;
@@ -103,8 +136,9 @@
 }
 
 /* ============================================================
-   ТЕКСТ
+   TEXT
 ============================================================ */
+
 .name {
   font-size: 17px;
   font-weight: 700;
@@ -121,8 +155,9 @@
 }
 
 /* ============================================================
-   СОЦСЕТИ
+   SOCIAL
 ============================================================ */
+
 .social {
   display: flex;
   justify-content: center;
@@ -149,7 +184,7 @@
 }
 
 /* ============================================================
-   АДАПТИВНОСТЬ
+   RESPONSIVE
 ============================================================ */
 
 /* ≤ 1024px */
@@ -157,6 +192,7 @@
   .drivers__title {
     font-size: 24px;
   }
+
   .card {
     padding: 22px 16px;
   }
@@ -166,6 +202,9 @@
 @media (max-width: 768px) {
   .drivers {
     padding: 28px var(--pad-x);
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
   }
 
   .card {
