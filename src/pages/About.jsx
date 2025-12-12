@@ -42,6 +42,11 @@ const team = [
 export default function About() {
   return (
     <main className={styles.about}>
+      
+      {/* Заголовок сторінки */}
+      <header className={styles.about__header}>
+        <h1 className={styles.about__pageTitle}>Про нас</h1>
+      </header>
 
       {/* Наша місія */}
       <Section title="Наша місія">
