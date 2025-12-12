@@ -7,6 +7,7 @@ import Scroll from "./components/Scroll/Scroll";
 
 import CarrierHeader from "./components/CarrierHeader/CarrierHeader";
 import CarrierInfo from "./components/CarrierInfo/CarrierInfo";
+import CookieModal from "./components/CookieModal/CookieModal";
 import DriversSwiper from "./components/DriversSwiper/DriversSwiper";
 import ReviewsBlock from "./components/ReviewsBlock/ReviewsBlock";
 import ServiceBlock from "./components/ServiceBlock/ServiceBlock";
@@ -44,6 +45,7 @@ const PageTitle = ({ children }) => (
 function App() {
   return (
     <>
+      <CookieModal />
       <Header />
       <Scroll />
 

@@ -1,0 +1,290 @@
+/* =========================================================
+   Modal wrapper
+========================================================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: clamp(12px, 4vw, 24px);
+}
+
+/* =========================================================
+   Overlay
+========================================================= */
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+/* =========================================================
+   Content
+========================================================= */
+.modal__content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  background: #ffffff;
+  border-radius: 14px;
+  padding: clamp(18px, 4vw, 28px);
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.18),
+    0 6px 18px rgba(0, 0, 0, 0.08);
+
+  animation: modalIn 0.25s ease-out;
+}
+
+/* =========================================================
+   Title
+========================================================= */
+
+.modal__title {
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: clamp(16px, 3vw, 22px);
+  line-height: 1.25;
+}
+
+/* =========================================================
+   Text
+========================================================= */
+.modal__text {
+  font-size: clamp(14px, 2.5vw, 15px);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: clamp(16px, 3vw, 20px);
+
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* =========================================================
+   Box with cookies
+========================================================= */
+.modal__box {
+  max-height: 240px;
+  overflow-y: auto;
+
+  background: #f9fafb;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+
+  padding: 10px 16px;
+  margin-bottom: clamp(18px, 4vw, 24px);
+}
+
+/* =========================================================
+   Rows
+========================================================= */
+.modal__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 14px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.modal__row:last-child {
+  border-bottom: none;
+}
+
+/* =========================================================
+   Labels
+========================================================= */
+.modal__label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0a2540;
+
+  max-width: 75%;
+  overflow-wrap: break-word;
+}
+
+/* =========================================================
+   Status
+========================================================= */
+.modal__status {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0a2540;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   Switch
+========================================================= */
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #e5e7eb;
+  border-radius: 999px;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+
+  background: #6b7280;
+  border-radius: 50%;
+
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.switch input:checked + .slider {
+  background: #c7dfe2;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+  background: #003b44;
+}
+
+/* =========================================================
+   Actions
+========================================================= */
+.modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal__actionsRight {
+  display: flex;
+  gap: 12px;
+}
+
+/* =========================================================
+   Buttons
+========================================================= */
+.modal__btnSecondary,
+.modal__btnDark,
+.modal__btnPrimary {
+  padding: 10px 20px;
+  border-radius: 12px;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.1s ease;
+}
+
+/* Secondary — outline blue */
+.modal__btnSecondary {
+  background: #ffffff;
+  border: 1px solid #3b82f6;
+  color: #2563eb;
+}
+
+.modal__btnSecondary:hover {
+  background: #eff6ff;
+}
+
+/* Primary / Dark — solid blue */
+.modal__btnDark,
+.modal__btnPrimary {
+  background: linear-gradient(
+    180deg,
+    #3b82f6 0%,
+    #2563eb 100%
+  );
+  color: #ffffff;
+  border: none;
+
+  box-shadow:
+    0 4px 10px rgba(59, 130, 246, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.modal__btnDark:hover,
+.modal__btnPrimary:hover {
+  background: linear-gradient(
+    180deg,
+    #2563eb 0%,
+    #1d4ed8 100%
+  );
+  box-shadow:
+    0 6px 14px rgba(59, 130, 246, 0.45),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+}
+
+/* Active */
+.modal__btnSecondary:active,
+.modal__btnDark:active,
+.modal__btnPrimary:active {
+  transform: translateY(1px);
+}
+
+/* Focus (accessibility) */
+.modal__btnSecondary:focus-visible,
+.modal__btnDark:focus-visible,
+.modal__btnPrimary:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.4);
+  outline-offset: 2px;
+}
+
+
+/* =========================================================
+   Focus (accessibility)
+========================================================= */
+.modal__btnSecondary:focus-visible,
+.modal__btnDark:focus-visible,
+.modal__btnPrimary:focus-visible {
+  outline: 3px solid rgba(0, 59, 68, 0.35);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   Animation
+========================================================= */
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
