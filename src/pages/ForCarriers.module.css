@@ -28,6 +28,13 @@
   letter-spacing: -0.5px;
 }
 
+.carriers__stepTitle {
+  font-weight: 700;
+  color: #000;
+  margin-right: 5px;
+  margin-bottom: 20px;
+}
+
 /* INTRO */
 .carriers__intro {
   margin-top: 28px;

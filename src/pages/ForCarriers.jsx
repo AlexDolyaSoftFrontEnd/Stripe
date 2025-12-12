@@ -3,9 +3,11 @@ import styles from "./ForCarriers.module.css";
 export default function ForCarriers() {
   return (
     <main className={styles.carriers}>
-
-      {/* Інтро секція */}
+      
+      {/* Інтро */}
       <section className={styles.carriers__intro}>
+        <h1 className={styles.carriers__title}>Перевізникам</h1>
+
         <p className={styles.carriers__lead}>
           Ми пропонуємо інструменти для керування рейсами, бронюваннями і
           спілкування з пасажирами. Підключення до платформи допомагає збільшити
@@ -14,35 +16,29 @@ export default function ForCarriers() {
       </section>
 
       {/* Як приєднатись */}
-      <section className={styles.section}>
+      <section className={styles.carriers__section}>
         <h2 className={styles.carriers__heading}>Як приєднатись</h2>
 
         <ol className={styles.carriers__steps}>
-          <li className={styles.carriers__stepsItem}>
-            <span className={styles.carriers__stepsItemTitle}>
-              Реєстрація профілю
-            </span>{" "}
+          <li className={styles.carriers__step}>
+            <span className={styles.carriers__stepTitle}>Реєстрація профілу</span>
             — додайте інформацію про флот та контакти.
           </li>
 
-          <li className={styles.carriers__stepsItem}>
-            <span className={styles.carriers__stepsItemTitle}>
-              Публікація рейсів
-            </span>{" "}
+          <li className={styles.carriers__step}>
+            <span className={styles.carriers__stepTitle}>Публікація рейсів</span>
             — створюйте маршрути та розклад.
           </li>
 
-          <li className={styles.carriers__stepsItem}>
-            <span className={styles.carriers__stepsItemTitle}>
-              Прийом бронювань
-            </span>{" "}
+          <li className={styles.carriers__step}>
+            <span className={styles.carriers__stepTitle}>Прийом бронювань</span>
             — керуйте місцями та оплатами в панелі.
           </li>
         </ol>
       </section>
 
       {/* Переваги */}
-      <section className={styles.section}>
+      <section className={styles.carriers__section}>
         <h2 className={styles.carriers__heading}>Переваги для перевізника</h2>
 
         <div className={styles.carriers__advantages}>
@@ -68,6 +64,7 @@ export default function ForCarriers() {
           </article>
         </div>
       </section>
+
     </main>
   );
 }

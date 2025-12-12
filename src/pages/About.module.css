@@ -26,21 +26,9 @@
 }
 
 /* ================================
-   HEAD TITLE
-================================ */
-.about__header {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-left: 50px;
-  margin-bottom: 36px;
-  text-align: left;
-}
-
-/* ================================
    SECTION
 ================================ */
-.section {
+.about__section {
   margin-top: 48px;
   animation: fadeInUp 0.5s ease-out;
   max-width: 1100px;
@@ -48,22 +36,22 @@
   margin-right: auto;
 }
 
-.section__title {
+.about__sectionTitle {
   margin-bottom: 20px;
   font-weight: 600;
   font-size: clamp(20px, 3vw, 26px);
-  color: #0b3d91;
+  color: var(--title-color);
   line-height: 1.3;
   text-align: left;
 }
 
-.section__lead {
+.about__lead {
   font-size: var(--text-font);
   line-height: 1.8;
   color: var(--text-color);
 }
 
-.section__text {
+.about__text {
   margin-top: 16px;
   font-size: 15px;
   line-height: 1.7;
@@ -73,14 +61,14 @@
 /* ================================
    METRICS
 ================================ */
-.metrics {
+.about__metrics {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.metrics__item {
+.about__metric {
   flex: 1 1 160px;
   padding: 20px;
   border: 1px solid var(--border-color);
@@ -92,18 +80,18 @@
   cursor: pointer;
 }
 
-.metrics__item:hover {
+.about__metric:hover {
   transform: translateY(-4px);
   box-shadow: var(--card-shadow-hover);
 }
 
-.metrics__value {
+.about__metricValue {
   font-size: 26px;
   color: var(--accent-color);
   font-weight: 700;
 }
 
-.metrics__label {
+.about__metricLabel {
   margin-top: 8px;
   font-size: var(--small-font);
   color: #666;
@@ -112,13 +100,13 @@
 /* ================================
    VALUES
 ================================ */
-.values {
+.about__values {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
-.values__item {
+.about__value {
   padding: 20px;
   border: 1px solid var(--border-color);
   border-radius: var(--card-radius);
@@ -128,18 +116,18 @@
   cursor: pointer;
 }
 
-.values__item:hover {
+.about__value:hover {
   transform: translateY(-4px);
   box-shadow: var(--card-shadow-hover);
 }
 
-.values__name {
+.about__valueName {
   color: var(--subtitle-color);
   font-size: 15px;
   font-weight: 600;
 }
 
-.values__desc {
+.about__valueDesc {
   margin-top: 8px;
   font-size: var(--small-font);
   color: var(--text-color);
@@ -149,14 +137,14 @@
 /* ================================
    TEAM
 ================================ */
-.team {
+.about__team {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.team__item {
+.about__teamItem {
   flex: 1 1 220px;
   padding: 20px;
   border: 1px solid var(--border-color);
@@ -168,18 +156,18 @@
   cursor: pointer;
 }
 
-.team__item:hover {
+.about__teamItem:hover {
   transform: translateY(-4px);
   box-shadow: var(--card-shadow-hover);
 }
 
-.team__avatarWrapper {
+.about__avatarWrapper {
   margin-bottom: 12px;
   display: flex;
   justify-content: center;
 }
 
-.team__avatar {
+.about__avatar {
   width: 72px;
   height: 72px;
   object-fit: cover;
@@ -187,19 +175,19 @@
   border: 3px solid var(--border-color);
 }
 
-.team__name {
+.about__teamName {
   font-weight: 600;
   color: var(--subtitle-color);
   margin-top: 4px;
 }
 
-.team__role {
+.about__teamRole {
   font-size: var(--small-font);
   color: #666;
   margin-top: 4px;
 }
 
-.team__exp {
+.about__teamExp {
   font-size: 13px;
   margin-top: 8px;
   color: var(--muted-color);

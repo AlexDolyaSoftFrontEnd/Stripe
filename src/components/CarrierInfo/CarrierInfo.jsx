@@ -4,6 +4,7 @@ import bus1 from "./images/bus1.png";
 import bus2 from "./images/bus2.png";
 import bus3 from "./images/bus3.png";
 
+import CarrierHeader from "../CarrierHeader/CarrierHeader";
 import Calendar from "./Calendar";
 
 /* ============================================================
@@ -75,67 +76,66 @@ const countries = [
   },
 ];
 
-/* Галерея */
 const gallery = [bus1, bus2, bus3];
 
-/* ============================================================
-   КОМПОНЕНТ
-============================================================ */
 export default function CarrierInfo() {
   return (
-    <section className={styles["carrier-info"]}>
-      {/* LEFT SIDE */}
-      <div className={styles["carrier-info__left"]}>
-        <h2 className={styles["carrier-info__title"]}>Опис перевізника</h2>
+    <>
+      <CarrierHeader title="Профиль перевізника" />
 
-        <p className={styles["carrier-info__text"]}>
-          Перевізник працює на ринку міжнародних пасажирських перевезень. 
-        </p>
+      <section className={styles["carrier-info"]}>
+        {/* LEFT SIDE */}
+        <div className={styles["carrier-info__left"]}>
+          <h2 className={styles["carrier-info__title"]}>Опис перевізника</h2>
 
-         <p className={styles["carrier-info__text"]}>
-          Забезпечує комфортні та безпечні поїздки Європою, має сучасний автопарк та досвідчених водіїв.
-        </p>
+          <p className={styles["carrier-info__text"]}>
+            Перевізник працює на ринку міжнародних пасажирських перевезень.
+          </p>
 
-        <h3 className={styles["carrier-info__subtitle"]}>Ми у соцмережах:</h3>
+          <p className={styles["carrier-info__text"]}>
+            Забезпечує комфортні та безпечні поїздки Європою, має сучасний автопарк та досвідчених водіїв.
+          </p>
 
-        <div className={styles["carrier-info__social"]}>
-          {socialLinks.map((s) => (
-            <a
-              key={s.label}
-              href={s.url}
-              className={styles["carrier-info__social-link"]}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {s.icon}
-              {s.label}
-            </a>
-          ))}
+          <h3 className={styles["carrier-info__subtitle"]}>Ми у соцмережах:</h3>
+
+          <div className={styles["carrier-info__social"]}>
+            {socialLinks.map((s) => (
+              <a
+                key={s.label}
+                href={s.url}
+                className={styles["carrier-info__social-link"]}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {s.icon}
+                {s.label}
+              </a>
+            ))}
+          </div>
+
+          <div className={styles["carrier-info__gallery"]}>
+            {gallery.map((src, i) => (
+              <img key={i} src={src} alt={`Bus ${i + 1}`} />
+            ))}
+          </div>
         </div>
 
-        <div className={styles["carrier-info__gallery"]}>
-          {gallery.map((src, i) => (
-            <img key={i} src={src} alt={`Bus ${i + 1}`} />
-          ))}
+        {/* RIGHT SIDE */}
+        <div className={styles["carrier-info__right"]}>
+          <h2 className={styles["carrier-info__title"]}>Обслуговуємо країни</h2>
+
+          <ul className={styles["carrier-info__countries"]}>
+            {countries.map((c) => (
+              <li key={c.name} className={styles["carrier-info__country"]}>
+                {c.flag}
+                {c.name}
+              </li>
+            ))}
+          </ul>
+
+          <Calendar />
         </div>
-      </div>
-
-      {/* RIGHT SIDE */}
-      <div className={styles["carrier-info__right"]}>
-        <h2 className={styles["carrier-info__title"]}>Обслуговуємо країни</h2>
-
-        <ul className={styles["carrier-info__countries"]}>
-          {countries.map((c) => (
-            <li key={c.name} className={styles["carrier-info__country"]}>
-              {c.flag}
-              {c.name}
-            </li>
-          ))}
-        </ul>
-
-        <Calendar />
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
-

@@ -1,10 +1,10 @@
 import styles from "./CarrierHeader.module.css";
 
-export default function CarrierHeader({subtitle }) {
+export default function CarrierHeader({ title}) {
   return (
     <header className={styles.header}>
       <div className={styles.header__inner}>
-        {subtitle && <p className={styles.header__subtitle}>{subtitle}</p>}
+        {title && <h1 className={styles.header__title}>{title}</h1>}
       </div>
     </header>
   );
