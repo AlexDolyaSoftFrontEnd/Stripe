@@ -195,8 +195,7 @@
    Buttons
 ========================================================= */
 .modal__btnSecondary,
-.modal__btnDark,
-.modal__btnPrimary {
+.modal__btnDark {
   padding: 10px 20px;
   border-radius: 12px;
 
@@ -210,7 +209,6 @@
     transform 0.1s ease;
 }
 
-/* Secondary — outline blue */
 .modal__btnSecondary {
   background: #ffffff;
   border: 1px solid #3b82f6;
