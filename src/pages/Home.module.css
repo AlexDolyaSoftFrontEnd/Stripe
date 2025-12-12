@@ -23,7 +23,7 @@
 .hero__title {
   font-size: clamp(26px, 5vw, 36px);
   font-weight: 700;
-  color: #0a2540;
+  color: #0b74de;
   line-height: 1.2;
 }
 
@@ -96,7 +96,7 @@
 
 .features__title {
   margin-bottom: 24px;
-  color: #0b3d91;
+  color: #0b74de;
   font-size: clamp(20px, 3vw, 26px);
   font-weight: 700;
   text-align: center;

@@ -3,18 +3,6 @@ import styles from "./ForCarriers.module.css";
 export default function ForCarriers() {
   return (
     <main className={styles.carriers}>
-      
-      {/* Інтро */}
-      <section className={styles.carriers__intro}>
-        <h1 className={styles.carriers__title}>Перевізникам</h1>
-
-        <p className={styles.carriers__lead}>
-          Ми пропонуємо інструменти для керування рейсами, бронюваннями і
-          спілкування з пасажирами. Підключення до платформи допомагає збільшити
-          заповнюваність і спростити процес оплати.
-        </p>
-      </section>
-
       {/* Як приєднатись */}
       <section className={styles.carriers__section}>
         <h2 className={styles.carriers__heading}>Як приєднатись</h2>

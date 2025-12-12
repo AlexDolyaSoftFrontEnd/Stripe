@@ -26,7 +26,6 @@
   --pad-x: clamp(16px, 4vw, 80px);
   --pad-y: clamp(24px, 5vw, 72px);
 
-  /* Desktop container width */
   --container-max: 1440px;
 }
 
@@ -103,7 +102,7 @@
 .carrier-info__title {
   font-size: clamp(24px, 2.6vw, 32px);
   font-weight: 700;
-  color: var(--text-primary);
+  color: #0b74de;
   letter-spacing: -0.25px;
   margin-bottom: 18px;
 }
@@ -160,7 +159,7 @@
 
   font-size: 15px;
   font-weight: 500;
-  color: var(--blue);
+  color: #0b74de;
   text-decoration: none;
 
   box-shadow: var(--shadow-soft);

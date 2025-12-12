@@ -1,5 +1,5 @@
 .about {
-  --title-color: #0b3d91;
+  --title-color: #0b74de;
   --subtitle-color: #0b3d91;
   --text-color: #555;
   --muted-color: #999;
@@ -17,12 +17,16 @@
 
   width: 100%;
   max-width: 1240px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 40px 20px 80px;
-  background: #ffffff;
-  min-height: 100vh;
+
+  background: #ffffff; 
+
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
 }
 
 /* ================================
@@ -225,4 +229,13 @@
   padding-left: 20px;
   margin: 0 25px;
   text-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.about__pageSubtitle {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: #555;
+  max-width: 600px;
+  margin-top: 12px;
+  text-align: left;
+  padding-left: 20px;
 }
