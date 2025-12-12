@@ -90,10 +90,6 @@ export default function CarrierInfo() {
             Перевізник працює на ринку міжнародних пасажирських перевезень.
           </p>
 
-          <p className={styles["carrier-info__text"]}>
-            Забезпечує комфортні та безпечні поїздки Європою, має сучасний автопарк та досвідчених водіїв.
-          </p>
-
           <h3 className={styles["carrier-info__subtitle"]}>Ми у соцмережах:</h3>
 
           <div className={styles["carrier-info__social"]}>

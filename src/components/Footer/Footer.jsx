@@ -30,7 +30,7 @@ export default function Footer() {
 
   const contacts = [
     { icon: iconPhone, text: "+ 38 (097) 555 55 55", alt: "Телефон" },
-    { icon: iconMail, text: "Sprintes@gmail.com", alt: "Email" },
+    { icon: iconMail, text: "sprintes@gmail.com", alt: "Email" },
   ];
 
   return (
@@ -64,7 +64,7 @@ export default function Footer() {
           <h4 className={styles.footer__title}>Зворотний зв'язок</h4>
 
           <p className={styles.footer__smalltext}>
-            Маєш пропозиції щодо покращення сервісу? — пиши нам!
+            Ми завжди раді почути твою думку!
           </p>
 
           <form className={styles.footer__form} aria-label="Форма для зворотного зв’язку">
